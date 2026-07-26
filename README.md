@@ -1,4 +1,4 @@
-# Alex Dev Site
+# Nexo Digital Site
 
 Site com apps, downloads, vendas, suporte técnico e central para balanceiros.
 

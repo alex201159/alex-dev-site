@@ -1,8 +1,8 @@
 {
-  "name": "alex-dev-site",
+  "name": "nexo-digital-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Site Alex Dev com apps, downloads, vendas, suporte e central para balanceiros.",
+  "description": "Site Nexo Digital com apps, downloads, vendas, suporte e central para balanceiros.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
