@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projetos | Alex Dev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header solid" data-header>
+      <a class="brand" href="index.html"><span class="brand-mark">AS</span><span>Alex Dev</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Início</a>
+        <a class="active-link" href="apps.html">Apps</a>
+        <a href="ajuda.html">Ajuda</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="vendas.html">Vendas</a>
+        <a href="balanceiros.html">Balanceiros</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <a class="header-action" href="contato.html">Solicitar suporte</a>
+    </header>
+
+    <main class="page">
+      <section class="split-hero apps-hero">
+        <div>
+          <p class="eyebrow">Portfólio analisado</p>
+          <h1>Meus apps e programas em produção.</h1>
+          <p>Projetos encontrados em <strong>/Users/alexjtsousa/Desktop/projetos</strong>, analisados por estrutura, nomes de telas e dependências.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="downloads.html">Abrir downloads</a>
+            <a class="button secondary" href="contato.html">Solicitar orçamento</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compact">
+        <div class="category-strip">
+          <article><span>BLE</span><strong>Balanças conectadas</strong></article>
+          <article><span>PDF</span><strong>Relatórios e impressão</strong></article>
+          <article><span>Flutter</span><strong>Apps multiplataforma</strong></article>
+          <article><span>Suporte</span><strong>Diagnóstico em campo</strong></article>
+        </div>
+
+        <div class="filter-bar">
+          <button class="filter active" type="button" data-filter="all">Todos</button>
+          <button class="filter" type="button" data-filter="balanca">Balanças</button>
+          <button class="filter" type="button" data-filter="gestao">Gestão</button>
+          <button class="filter" type="button" data-filter="tecnico">Técnico</button>
+          <button class="filter" type="button" data-filter="licenca">Licenças</button>
+        </div>
+
+        <div class="project-grid premium-project-grid" data-apps-list>
+          <div class="empty-feed">Carregando apps...</div>
+        </div>
+        <template data-static-apps>
+          <article class="project-card featured-project" data-category="gestao">
+            <div class="app-icon fallback-icon">CF</div>
+            <span class="tag">Gestão financeira</span>
+            <h2>Controle Financeiro</h2>
+            <p>Aplicativo Flutter para controle financeiro com organização de dados locais, exportação/compartilhamento, geração de PDF e estrutura moderna com Riverpod, Hive e fontes personalizadas.</p>
+            <a class="download-link" href="downloads.html">Ver download</a>
+          </article>
+
+          <article class="project-card" data-category="licenca">
+            <div class="app-icon fallback-icon">LG</div>
+            <span class="tag">Licenciamento</span>
+            <h2>License Generator App</h2>
+            <p>Gerador de licenças em Flutter com uso de criptografia. O código indica tela própria de geração, cópia de chave e interface dedicada para criar códigos de ativação.</p>
+            <a class="download-link" href="downloads.html">Ver download</a>
+          </article>
+
+          <article class="project-card featured-project" data-category="balanca">
+            <img class="app-icon" src="assets/apps/lcpeso.png" alt="Ícone do app LC Peso" />
+            <span class="tag">Pesagem BLE</span>
+            <h2>LC Peso</h2>
+            <p>Aplicativo para balança com conexão Bluetooth/BLE, calibração, histórico, desempenho, backup interno, impressão térmica e compartilhamento de dados.</p>
+            <a class="download-link" href="downloads.html">Ver download</a>
+          </article>
+
+          <article class="project-card" data-category="balanca">
+            <img class="app-icon" src="assets/apps/lcagro.jpg" alt="Ícone do app LC Agro" />
+            <span class="tag">LC Agro</span>
+            <h2>LC Agro BLE e Clássico</h2>
+            <p>Variação do LC Peso com identidade LC Agro, suporte a Bluetooth BLE e clássico, histórico exportável, relatórios, cadastro BIM, calibração e impressão.</p>
+            <a class="download-link" href="downloads.html">Ver download</a>
+          </article>
+
+          <article class="project-card" data-category="balanca">
+            <img class="app-icon" src="assets/apps/lccarga.jpg" alt="Ícone do app LC Carga" />
+            <span class="tag">Carga</span>
+            <h2>LC Carga Atual</h2>
+            <p>Aplicativo ScaleTech para gerenciamento de carga com login, cadastro de clientes, conexão Bluetooth, configuração de impressão, usuários por perfil, histórico e relatórios.</p>
+            <a class="download-link" href="downloads.html">Ver download</a>
+          </article>
+
+          <article class="project-card" data-category="balanca">
+            <img class="app-icon" src="assets/apps/lcpeso-ecc.png" alt="Ícone do app LC Peso com ECC" />
+            <span class="tag">Peso avançado</span>
+            <h2>LC Peso com ECC OBS</h2>
+            <p>Versão avançada do LC Peso com configuração administrativa, observações, relatórios detalhados, pré-visualização, impressão Bluetooth e tela de busca de impressora.</p>
+            <a class="download-link" href="downloads.html">Ver download</a>
+          </article>
+
+          <article class="project-card" data-category="balanca">
+            <img class="app-icon" src="assets/apps/lc-trato.jpeg" alt="Ícone do app LC Trato" />
+            <span class="tag">Trato animal</span>
+            <h2>LC Trato</h2>
+            <p>App Flutter com BLE para operações de carga e descarga, integração com ESP32, Firebase/Firestore, alertas sonoros, backup, compartilhamento e telas de controle operacional.</p>
+            <a class="download-link" href="downloads.html">Ver download</a>
+          </article>
+
+          <article class="project-card" data-category="tecnico">
+            <img class="app-icon" src="assets/apps/coletador-rbc.png" alt="Ícone do app Coletador RBC" />
+            <span class="tag">Coleta e relatórios</span>
+            <h2>Coletador RBC</h2>
+            <p>Aplicativo para coleta de dados com importação de clientes, geração de PDF, planilhas Excel/CSV, impressão Bluetooth térmica, imagens e compartilhamento.</p>
+            <a class="download-link" href="downloads.html">Ver download</a>
+          </article>
+
+          <article class="project-card" data-category="tecnico">
+            <img class="app-icon" src="assets/apps/coleta-normal.png" alt="Ícone do app Coleta Normal" />
+            <span class="tag">Coleta</span>
+            <h2>Coleta Normal</h2>
+            <p>Projeto Flutter dentro da pasta coletador, relacionado a coleta e documentação. A estrutura contém pubspec, README e um PDF, indicando uma versão base ou pacote separado do coletador.</p>
+            <a class="download-link" href="downloads.html">Ver download</a>
+          </article>
+
+          <article class="project-card" data-category="tecnico">
+            <div class="app-icon fallback-icon">LT</div>
+            <span class="tag">Teste de hardware</span>
+            <h2>LUMAK Tester</h2>
+            <p>Aplicativo de teste para comunicação BLE/serial, calibração, leitura de balança, relatórios salvos e varredura automática de protocolo. Também há sketches Arduino na pasta.</p>
+            <a class="download-link" href="downloads.html">Ver download</a>
+          </article>
+
+          <article class="project-card" data-category="balanca">
+            <img class="app-icon" src="assets/apps/lc-carga-lib.jpeg" alt="Ícone da biblioteca LC Carga" />
+            <span class="tag">Módulo fonte</span>
+            <h2>Biblioteca LC Carga</h2>
+            <p>Pasta com código Flutter solto contendo telas de carga, descarga, receitas, estoque, relatórios, login, usuários, Bluetooth e serviços de autenticação. Parece uma base reutilizável ou versão extraída de app maior.</p>
+            <a class="download-link" href="contato.html">Solicitar análise</a>
+          </article>
+
+          <article class="project-card" data-category="tecnico">
+            <div class="app-icon fallback-icon">CO</div>
+            <span class="tag">Em organização</span>
+            <h2>Coleta</h2>
+            <p>A pasta foi encontrada, mas não havia arquivos visíveis na profundidade analisada. Pode ser reservada para uma versão futura, backup ou projeto ainda não iniciado.</p>
+            <a class="download-link" href="contato.html">Pedir suporte</a>
+          </article>
+        </template>
+      </section>
+    </main>
+    <footer class="footer"><span>Alex Dev</span><span>Projetos reais adicionados ao site.</span><a href="downloads.html">Downloads</a></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

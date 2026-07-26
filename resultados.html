@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultados | Alex Dev</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header solid" data-header>
+      <a class="brand" href="index.html"><span class="brand-mark">AS</span><span>Alex Dev</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="apps.html">Apps</a>
+        <a href="ajuda.html">Ajuda</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="vendas.html">Vendas</a>
+        <a class="active-link" href="balanceiros.html">Balanceiros</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <a class="header-action" href="balanceiros.html">Voltar</a>
+    </header>
+
+    <main class="page results-page">
+      <section class="results-hero">
+        <p class="eyebrow">Busca rápida</p>
+        <h1>Resultados para <span data-results-query>equipamento</span></h1>
+        <form class="results-search" data-results-form>
+          <input type="search" name="q" placeholder="Digite outro modelo ou equipamento" data-results-input />
+          <button class="button primary" type="submit">Buscar</button>
+        </form>
+      </section>
+
+      <section class="results-section">
+        <div class="results-status" data-results-status>Buscando primeiro no acervo do site...</div>
+        <div class="results-columns">
+          <section>
+            <div class="content-heading"><p class="eyebrow">PDF</p><h2>Manuais encontrados</h2></div>
+            <div class="result-list" data-results-manuals></div>
+          </section>
+          <section>
+            <div class="content-heading"><p class="eyebrow">Vídeo</p><h2>Vídeos encontrados</h2></div>
+            <div class="result-list" data-results-videos></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><span>Alex Dev</span><span>Resultados de busca para balanceiros.</span><a href="balanceiros.html">Voltar à central</a></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

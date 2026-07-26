@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | Alex Dev</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header solid" data-header>
+      <a class="brand" href="index.html"><span class="brand-mark">AS</span><span>Alex Dev</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="apps.html">Apps</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="vendas.html">Vendas</a>
+        <a href="balanceiros.html">Balanceiros</a>
+      </nav>
+      <a class="header-action" href="index.html">Ver site</a>
+    </header>
+
+    <main class="page admin-page">
+      <section class="admin-hero">
+        <div>
+          <p class="eyebrow">Área restrita</p>
+          <h1>Painel do administrador.</h1>
+          <p>Edite apps e downloads diretamente pelo navegador. As alterações são salvas no arquivo <strong>data/content.json</strong>.</p>
+        </div>
+        <form class="admin-login" data-admin-login>
+          <label>Senha do admin<input type="password" name="password" placeholder="Digite a senha" required /></label>
+          <button class="button primary" type="submit">Entrar</button>
+        </form>
+      </section>
+
+      <section class="admin-workspace" data-admin-workspace hidden>
+        <nav class="admin-tabs">
+          <button class="brand-tab active" type="button" data-admin-tab="apps">Apps</button>
+          <button class="brand-tab" type="button" data-admin-tab="downloads">Downloads</button>
+          <button class="brand-tab" type="button" data-admin-tab="vendas">Vendas</button>
+          <button class="brand-tab" type="button" data-admin-tab="balanceiros">Balanceiros</button>
+        </nav>
+
+        <section class="admin-panel active" data-admin-panel="apps">
+          <div class="admin-panel-head">
+            <div>
+              <p class="eyebrow">Aba Apps</p>
+              <h2>Editar apps e descrições</h2>
+            </div>
+            <button class="button secondary" type="button" data-add-app>Adicionar app</button>
+          </div>
+          <div class="admin-list" data-admin-apps></div>
+        </section>
+
+        <section class="admin-panel" data-admin-panel="downloads">
+          <div class="admin-panel-head">
+            <div>
+              <p class="eyebrow">Aba Downloads</p>
+              <h2>Adicionar ou remover downloads</h2>
+            </div>
+            <button class="button secondary" type="button" data-add-download>Adicionar download</button>
+          </div>
+          <div class="admin-list" data-admin-downloads></div>
+        </section>
+
+        <section class="admin-panel" data-admin-panel="vendas">
+          <div class="admin-panel-head">
+            <div>
+              <p class="eyebrow">Aba Vendas</p>
+              <h2>Produtos com imagem e descrição</h2>
+            </div>
+            <button class="button secondary" type="button" data-add-product>Adicionar produto</button>
+          </div>
+          <div class="admin-list" data-admin-products></div>
+        </section>
+
+        <section class="admin-panel" data-admin-panel="balanceiros">
+          <div class="admin-panel-head">
+            <div>
+              <p class="eyebrow">Aba Balanceiros</p>
+              <h2>Postar vídeos e manuais PDF</h2>
+            </div>
+            <button class="button secondary" type="button" data-add-material>Adicionar material</button>
+          </div>
+          <div class="admin-list" data-admin-materials></div>
+        </section>
+
+        <div class="admin-savebar">
+          <span data-admin-status>Alterações locais ainda não salvas.</span>
+          <button class="button primary" type="button" data-save-content>Salvar alterações</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para Balanceiros | Alex Dev</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header solid" data-header>
+      <a class="brand" href="index.html"><span class="brand-mark">AS</span><span>Alex Dev</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="apps.html">Apps</a>
+        <a href="ajuda.html">Ajuda</a>
+        <a href="downloads.html">Downloads</a>
+        <a href="vendas.html">Vendas</a>
+        <a class="active-link" href="balanceiros.html">Balanceiros</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <a class="header-action" href="#postar" data-header-action data-balance-tab="postar">Postar material</a>
+      <button class="header-login-badge" type="button" title="Conta conectada" data-header-login hidden>G</button>
+    </header>
+
+    <main class="page balance-page">
+      <section class="balance-hero">
+        <div class="balance-hero-copy">
+          <p class="eyebrow">Central dos balanceiros</p>
+          <h1>Tutoriais, manuais e ajuda para balanças em campo.</h1>
+          <p>
+            Encontre material por marca e modelo, publique vídeos ou PDFs e consulte fontes externas dentro do próprio site
+            quando o conteúdo ainda não existir no acervo.
+          </p>
+        </div>
+      </section>
+
+      <section class="balance-dashboard" aria-label="Resumo da central">
+        <article><span>09</span><strong>manuais externos cadastrados</strong></article>
+        <article><span>03</span><strong>marcas organizadas em abas</strong></article>
+        <article><span>PDF</span><strong>separado dos vídeos</strong></article>
+      </section>
+
+      <nav class="balance-nav-tabs" aria-label="Navegação da central">
+        <a href="#videos" data-balance-tab="videos">Vídeos</a>
+        <a href="#manuais" data-balance-tab="manuais">Manuais PDF</a>
+        <a class="active" href="#busca-rapida" data-balance-tab="busca-rapida">Busca rápida</a>
+        <a href="#perguntas" data-balance-tab="perguntas">Ajudar comunidade</a>
+        <a href="#postar" data-balance-tab="postar">Postar manual ou vídeo</a>
+      </nav>
+
+      <section class="quick-search-section active" id="busca-rapida" data-balance-panel="busca-rapida">
+        <div class="section-heading left">
+          <p class="eyebrow">Atalho principal</p>
+          <h2>Busca rápida</h2>
+          <p>Digite o equipamento uma vez para abrir uma tela limpa com manuais e vídeos juntos.</p>
+        </div>
+        <aside class="balance-search-card standalone-search-card">
+          <span>Buscar equipamento</span>
+          <form class="quick-search-form" data-quick-search-form>
+            <label>
+              Modelo ou equipamento
+              <input type="search" placeholder="Ex: Prix 4 Uno, CSP-10A, Filizola Platina" data-material-search />
+            </label>
+            <button class="button primary" type="submit">Abrir resultados</button>
+          </form>
+          <div class="quick-actions">
+            <a href="#videos">Vídeos</a>
+            <a href="#manuais">Manuais</a>
+            <a href="#perguntas">Comunidade</a>
+          </div>
+        </aside>
+      </section>
+
+      <section class="balance-workspace" id="videos" data-balance-panel="videos">
+        <aside class="balance-sidebar">
+          <p class="eyebrow">Filtros</p>
+          <h2>Vídeos</h2>
+          <p>Escolha uma marca e refine por modelo. Esta área mostra somente vídeos, sem misturar manuais PDF.</p>
+
+          <div class="brand-tabs vertical-tabs" aria-label="Abas de marcas para vídeos e materiais">
+            <button class="brand-tab active" type="button" data-material-tab="all">Todos</button>
+            <button class="brand-tab" type="button" data-material-tab="Toledo">Toledo</button>
+            <button class="brand-tab" type="button" data-material-tab="Filizola">Filizola</button>
+            <button class="brand-tab" type="button" data-material-tab="Celmi">Celmi</button>
+            <button class="brand-tab" type="button" data-material-tab="other">Outras</button>
+          </div>
+
+          <div class="material-filters material-filters-stack" aria-label="Filtros de vídeos">
+            <label>Modelo<select data-material-model><option value="all">Todos os modelos</option></select></label>
+          </div>
+        </aside>
+
+        <div class="balance-content">
+          <div class="content-heading">
+            <p class="eyebrow">Resultados</p>
+            <h2>Vídeos encontrados</h2>
+          </div>
+          <div class="external-search" data-external-search>
+            <span>Digite um modelo para buscar vídeos no acervo. Se não houver vídeo próprio, trago vídeos externos aqui.</span>
+          </div>
+          <div class="community-feed" data-community-feed></div>
+        </div>
+      </section>
+
+      <section class="manual-center" id="manuais" data-balance-panel="manuais">
+        <div class="section-heading">
+          <p class="eyebrow">Biblioteca PDF</p>
+          <h2>Manuais por marca</h2>
+          <p>Use “Todas” para buscar um modelo específico sem poluir a tela. Nas marcas, os manuais aparecem direto.</p>
+        </div>
+
+        <div class="manual-library">
+          <div class="brand-tabs" aria-label="Abas de marcas dos manuais">
+            <button class="brand-tab active" type="button" data-manual-tab="all">Todas</button>
+            <button class="brand-tab" type="button" data-manual-tab="Toledo">Toledo</button>
+            <button class="brand-tab" type="button" data-manual-tab="Filizola">Filizola</button>
+            <button class="brand-tab" type="button" data-manual-tab="Celmi">Celmi</button>
+            <button class="brand-tab" type="button" data-manual-tab="Comunidade">Comunidade</button>
+          </div>
+          <label class="manual-model-search">Buscar modelo nos manuais<input type="search" placeholder="Digite o modelo desejado" data-manual-model-search /></label>
+          <div class="manual-empty-state" data-manual-empty>Digite um modelo para buscar em todas as marcas.</div>
+
+          <div class="manual-brand-list">
+            <article class="manual-brand-group active" data-manual-panel="Toledo">
+              <header><span>Toledo</span><strong>3 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="Prix 7E" href="https://www.toledobrasil.com/produtos/manuais-de-usuario/"><b>Prix 7E</b><small>Manual do usuário da balança comercial.</small></a>
+                <a data-manual-model="Prix Rebanho" href="https://www.toledobrasil.com/produtos/manuais-de-usuario/"><b>Prix Rebanho</b><small>Manual para balança de gado.</small></a>
+                <a data-manual-model="2098 2098 C" href="https://www.toledobrasil.com/produtos/manuais-de-usuario/"><b>2098 e 2098 C</b><small>Manual do usuário para os modelos 2098.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="Filizola">
+              <header><span>Filizola</span><strong>3 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="Platina" href="https://drbalanca.com.br/videos/cadastro-produtos-filizola-platina-manual/"><b>Platina</b><small>Instalação, operação e cadastro de produtos.</small></a>
+                <a data-manual-model="BP BPS" href="https://pt.scribd.com/document/351374380/Manual-do-usuario-Filizola-Bp-BPS-WWW-DRBALANCA-COM-BR-pdf"><b>BP / BPS</b><small>Manual de instalação e operação.</small></a>
+                <a data-manual-model="Portátil bovinos" href="https://www.oswaldofilizola.com.br/pdf/manualbdpb.pdf"><b>Portátil para bovinos</b><small>Manual PDF com orientações de uso e bateria.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="Celmi">
+              <header><span>Celmi</span><strong>3 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="CSP-10A" href="https://pt.scribd.com/document/584547067/Manual-Te-cnico-CSP10A"><b>CSP-10A</b><small>Manual técnico para instalação e calibração.</small></a>
+                <a data-manual-model="CSP-10B" href="https://www.scribd.com/document/772221980/Manual-CSP-10B"><b>CSP-10B</b><small>Manual do indicador de pesagem sem fio.</small></a>
+                <a data-manual-model="CSP-10Ci" href="https://www.celmi.com.br/produtos/terminais-e-indicadores/indicador-csp-10ci"><b>CSP-10Ci</b><small>Página técnica oficial do indicador.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="Comunidade">
+              <header><span>Comunidade</span><strong data-community-manual-count>0 manuais enviados</strong></header>
+              <div class="manual-items" data-community-manuals></div>
+            </article>
+          </div>
+          <section class="pdf-viewer" id="visualizar-manual" data-pdf-viewer hidden>
+            <header>
+              <div>
+                <span>Visualizador PDF</span>
+                <strong data-pdf-title>Manual</strong>
+              </div>
+              <button class="button secondary" type="button" data-pdf-close>Fechar</button>
+            </header>
+            <iframe title="Visualizador de manual em PDF" data-pdf-frame></iframe>
+            <div class="pdf-blocked" data-pdf-blocked hidden>
+              <strong>Este manual não permite visualização dentro do site.</strong>
+              <p>A fonte original bloqueia abertura incorporada. Manuais enviados em PDF direto continuam abrindo aqui normalmente.</p>
+              <a class="button primary" href="#" target="_blank" rel="noopener" data-pdf-external>Abrir fonte original</a>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="questions-section" id="perguntas" data-balance-panel="perguntas">
+        <div class="section-heading">
+          <p class="eyebrow">Perguntas</p>
+          <h2>Ajudar comunidade</h2>
+          <p>Faça uma pergunta por marca e modelo. Outros usuários logados podem responder e ajudar a fortalecer o acervo.</p>
+        </div>
+        <div class="questions-layout">
+          <div class="question-list" data-question-list></div>
+          <form class="contact-form elevated-form" data-question-form>
+            <label>Marca<input type="text" name="brand" placeholder="Ex: Toledo, Filizola, Celmi" required /></label>
+            <label>Modelo<input type="text" name="model" placeholder="Ex: Prix 4 Uno, CSP-10A" required /></label>
+            <label>Pergunta<textarea name="question" rows="5" placeholder="Descreva o problema ou a dúvida" required></textarea></label>
+            <button class="button primary" type="submit">Publicar pergunta</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="submit-section" id="postar" data-balance-panel="postar">
+        <div class="section-heading">
+          <p class="eyebrow">Comunidade</p>
+          <h2>Postar manual ou vídeo</h2>
+          <p>Informe marca e modelo para que outros balanceiros encontrem o material pelos filtros. O login Google será solicitado ao publicar.</p>
+        </div>
+        <form class="contact-form elevated-form submit-form" data-contribute-form>
+          <label>Nome<input type="text" name="name" placeholder="Seu nome" required /></label>
+          <label>Título do material<input type="text" name="title" placeholder="Ex: Como calibrar antes da primeira pesagem" required /></label>
+          <label>Marca do balancão<input type="text" name="brand" placeholder="Ex: Toledo, Filizola, Celmi" required /></label>
+          <label>Modelo da balança<input type="text" name="model" placeholder="Ex: Prix 4 Uno, CSP-10A, Platina" required /></label>
+          <label>Tipo de material<select name="type" required><option>Vídeo</option><option>Manual PDF</option><option>Dica rápida</option><option>Procedimento técnico</option></select></label>
+          <label>Link do material<input type="url" name="link" placeholder="https://youtube.com/... ou https://.../manual.pdf" /></label>
+          <label>Arquivo de vídeo ou PDF<input type="file" name="file" accept="video/*,.pdf,application/pdf" /></label>
+          <label>Descrição<textarea name="description" rows="5" placeholder="Explique o que esse material ensina" required></textarea></label>
+          <div class="form-actions">
+            <button class="button primary" type="submit" data-channel="publish">Publicar agora</button>
+            <button class="button secondary" type="submit" data-channel="whatsapp">Enviar também no WhatsApp</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+
+    <footer class="footer"><span>Alex Dev</span><span>Central colaborativa para balanceiros.</span><a href="#busca-rapida">Voltar para busca</a></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

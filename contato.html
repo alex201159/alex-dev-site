@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato | Alex Dev</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header solid" data-header>
+      <a class="brand" href="index.html"><span class="brand-mark">AS</span><span>Alex Dev</span></a>
+      <nav class="nav-links"><a href="index.html">Início</a><a href="apps.html">Apps</a><a href="ajuda.html">Ajuda</a><a href="downloads.html">Downloads</a><a href="vendas.html">Vendas</a><a href="balanceiros.html">Balanceiros</a><a class="active-link" href="contato.html">Contato</a></nav>
+      <a class="header-action" href="contato.html">Solicitar suporte</a>
+    </header>
+
+    <main class="page">
+      <section class="contact-page-pro">
+        <div class="contact-copy contact-hero-copy">
+          <p class="eyebrow">Contato direto</p>
+          <h1>Vamos resolver o problema do seu cliente.</h1>
+          <p>Descreva a situação, escolha o canal e envie uma mensagem já formatada para WhatsApp ou e-mail.</p>
+          <div class="contact-highlights">
+            <span><strong>Apps</strong> instalação e atualização</span>
+            <span><strong>Balanças</strong> BLE, serial e calibração</span>
+            <span><strong>Sistemas</strong> melhorias e correções</span>
+          </div>
+        </div>
+
+        <form class="contact-form elevated-form" data-contact-form>
+          <label>Nome<input type="text" name="name" placeholder="Seu nome" required /></label>
+          <label>Tipo de ajuda<select name="subject" required><option>Suporte técnico</option><option>Download ou instalação</option><option>Erro em app de balança</option><option>Orçamento de sistema</option><option>Outro assunto</option></select></label>
+          <label>Mensagem<textarea name="message" rows="6" placeholder="Descreva o problema, aparelho, app usado ou arquivo que deseja baixar" required></textarea></label>
+          <div class="form-actions">
+            <button class="button primary" type="submit" data-channel="whatsapp">Enviar no WhatsApp</button>
+            <button class="button secondary" type="submit" data-channel="email">Enviar por e-mail</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer"><span>Alex Dev</span><span>Fale comigo.</span><a href="apps.html">Ver apps</a></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendas | Alex Dev</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header solid" data-header>
+      <a class="brand" href="index.html"><span class="brand-mark">AS</span><span>Alex Dev</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="apps.html">Apps</a>
+        <a href="ajuda.html">Ajuda</a>
+        <a href="downloads.html">Downloads</a>
+        <a class="active-link" href="vendas.html">Vendas</a>
+        <a href="balanceiros.html">Balanceiros</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <a class="header-action" href="contato.html">Comprar com suporte</a>
+    </header>
+
+    <main class="page sales-page">
+      <section class="sales-hero">
+        <div class="sales-copy">
+          <p class="eyebrow">Loja Alex Dev</p>
+          <h1>Soluções prontas para levar seu atendimento mais longe.</h1>
+          <p>Produtos, apps, licenças e serviços cadastrados por você no painel admin, com imagem, preço, descrição e compra direta.</p>
+          <div class="sales-actions">
+            <a class="button primary" href="#produtos">Ver produtos</a>
+            <a class="button secondary" href="contato.html">Pedir orçamento</a>
+          </div>
+        </div>
+        <div class="sales-showcase" aria-hidden="true">
+          <div class="showcase-card main">
+            <span>produto</span>
+            <strong>App + suporte</strong>
+          </div>
+          <div class="showcase-row">
+            <span>licença</span>
+            <span>instalação</span>
+          </div>
+          <div class="showcase-total">
+            <small>Compra orientada</small>
+            <strong>direto com Alex Dev</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compact sales-products" id="produtos">
+        <div class="section-heading">
+          <p class="eyebrow">Vitrine</p>
+          <h2>Produtos disponíveis</h2>
+          <p>Adicione novos itens no admin. Quando cadastrar uma imagem, ela aparece aqui automaticamente.</p>
+        </div>
+        <div class="sales-grid" data-products-list>
+          <div class="empty-feed">Carregando produtos...</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><span>Alex Dev</span><span>Produtos e soluções.</span><a href="contato.html">Falar comigo</a></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

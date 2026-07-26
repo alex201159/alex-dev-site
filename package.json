@@ -1,0 +1,13 @@
+{
+  "name": "alex-dev-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site Alex Dev com apps, downloads, vendas, suporte e central para balanceiros.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

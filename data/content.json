@@ -1,0 +1,105 @@
+{
+  "apps": [
+    {
+      "title": "Controle Financeiro",
+      "category": "gestao",
+      "tag": "Gestão financeira",
+      "description": "Aplicativo Flutter para controle financeiro com organização de dados locais, exportação/compartilhamento, geração de PDF e estrutura moderna com Riverpod, Hive e fontes personalizadas.",
+      "icon": "",
+      "initials": "CF",
+      "link": "downloads.html",
+      "featured": true
+    },
+    {
+      "title": "LC Agro BLE e Clássico",
+      "category": "balanca",
+      "tag": "LC Agro",
+      "description": "Variação do LC Peso com identidade LC Agro, suporte a Bluetooth BLE e clássico, histórico exportável, relatórios, cadastro BIM, calibração e impressão.",
+      "icon": "assets/apps/lcagro.jpg",
+      "initials": "LA",
+      "link": "downloads.html",
+      "featured": false
+    },
+    {
+      "title": "LC Carga Atual",
+      "category": "balanca",
+      "tag": "Carga",
+      "description": "Aplicativo ScaleTech para gerenciamento de carga com login, cadastro de clientes, conexão Bluetooth, configuração de impressão, usuários por perfil, histórico e relatórios.",
+      "icon": "assets/apps/lccarga.jpg",
+      "initials": "LC",
+      "link": "downloads.html",
+      "featured": false
+    },
+    {
+      "title": "LC Peso com ECC OBS",
+      "category": "balanca",
+      "tag": "Peso avançado",
+      "description": "Versão avançada do LC Peso com configuração administrativa, observações, relatórios detalhados, pré-visualização, impressão Bluetooth e tela de busca de impressora.",
+      "icon": "assets/apps/lcpeso-ecc.png",
+      "initials": "LE",
+      "link": "downloads.html",
+      "featured": false
+    },
+    {
+      "title": "LC Trato",
+      "category": "balanca",
+      "tag": "Trato animal",
+      "description": "App Flutter com BLE para operações de carga e descarga, integração com ESP32, Firebase/Firestore, alertas sonoros, backup, compartilhamento e telas de controle operacional.",
+      "icon": "assets/apps/lc-trato.jpeg",
+      "initials": "LT",
+      "link": "downloads.html",
+      "featured": false
+    },
+    {
+      "title": "Coletador RBC",
+      "category": "tecnico",
+      "tag": "Coleta e relatórios",
+      "description": "Aplicativo para coleta de dados com importação de clientes, geração de PDF, planilhas Excel/CSV, impressão Bluetooth térmica, imagens e compartilhamento.",
+      "icon": "assets/apps/coletador-rbc.png",
+      "initials": "CR",
+      "link": "downloads.html",
+      "featured": false
+    },
+    {
+      "title": "Coleta Normal",
+      "category": "tecnico",
+      "tag": "Coleta",
+      "description": "Projeto Flutter dentro da pasta coletador, relacionado a coleta e documentação. A estrutura contém pubspec, README e um PDF, indicando uma versão base ou pacote separado do coletador.",
+      "icon": "assets/apps/coleta-normal.png",
+      "initials": "CN",
+      "link": "downloads.html",
+      "featured": false
+    }
+  ],
+  "downloads": [
+    {
+      "project": "LC Peso",
+      "category": "Balança",
+      "file": "app-release.apk",
+      "description": "Aplicativo de pesagem com Bluetooth, calibração, histórico e impressão.",
+      "link": "/uploads/1785092013561-app-release.apk",
+      "action": "Baixar",
+      "featured": true
+    },
+    {
+      "project": "LC Carga Atual",
+      "category": "Carga",
+      "file": "Aguardando APK",
+      "description": "Sistema ScaleTech para carga, clientes, usuários, impressão e relatórios.",
+      "link": "contato.html",
+      "action": "Solicitar APK",
+      "featured": true
+    },
+    {
+      "project": "Coletador RBC",
+      "category": "Coleta",
+      "file": "Aguardando APK",
+      "description": "Coleta de dados, PDF, Excel, CSV, imagens e impressão Bluetooth térmica.",
+      "link": "contato.html",
+      "action": "Solicitar APK",
+      "featured": true
+    }
+  ],
+  "balanceMaterials": [],
+  "products": []
+}
