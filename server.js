@@ -28,9 +28,23 @@ const mimeTypes = {
   ".webm": "video/webm",
 };
 
+const namedHtmlEntities = {
+  aacute: "á", agrave: "à", acirc: "â", atilde: "ã", auml: "ä",
+  eacute: "é", egrave: "è", ecirc: "ê", euml: "ë",
+  iacute: "í", igrave: "ì", icirc: "î", iuml: "ï",
+  oacute: "ó", ograve: "ò", ocirc: "ô", otilde: "õ", ouml: "ö",
+  uacute: "ú", ugrave: "ù", ucirc: "û", uuml: "ü",
+  ccedil: "ç", ntilde: "ñ", nbsp: " ",
+  Aacute: "Á", Eacute: "É", Iacute: "Í", Oacute: "Ó", Uacute: "Ú",
+  Atilde: "Ã", Otilde: "Õ", Ccedil: "Ç",
+};
+
 const decodeHtml = (value = "") =>
   value
+    // DuckDuckGo/Bing às vezes entregam entidades escapadas em dobro
+    // (ex.: "&amp;aacute;"), então o "&amp;" precisa virar "&" antes do resto.
     .replace(/&amp;/g, "&")
+    .replace(/&(aacute|agrave|acirc|atilde|auml|eacute|egrave|ecirc|euml|iacute|igrave|icirc|iuml|oacute|ograve|ocirc|otilde|ouml|uacute|ugrave|ucirc|uuml|ccedil|ntilde|nbsp|Aacute|Eacute|Iacute|Oacute|Uacute|Atilde|Otilde|Ccedil);/g, (_, name) => namedHtmlEntities[name])
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&lt;/g, "<")
@@ -67,11 +81,13 @@ const unwrapBingUrl = (href) => {
   }
 };
 
-const enhanceManualQuery = (query) => {
-  const normalized = query.toLowerCase();
-  const brandHint = normalized.includes("prix") || normalized.includes("toledo") ? "Toledo" : "";
-  return `${brandHint} "${query}" manual usuário PDF balança computadora`;
-};
+const enhanceManualQuery = (query) => `${query} manual do usuário pdf balança`;
+
+const normalizeForMatch = (value) =>
+  String(value)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "");
 
 const knownManuals = [
   {
@@ -102,7 +118,7 @@ const searchKnownManuals = (query, limit = 4) => {
     .map(({ title, link, description }) => ({ title, link, description }));
 };
 
-const searchDuckDuckGo = async (query, limit = 4) => {
+const searchDuckDuckGo = async (query, limit = 6) => {
   const response = await fetch(`https://duckduckgo.com/html/?q=${encodeURIComponent(query)}`, {
     headers: { "user-agent": "Mozilla/5.0" },
   });
@@ -122,7 +138,7 @@ const searchDuckDuckGo = async (query, limit = 4) => {
   return results;
 };
 
-const searchBing = async (query, limit = 4) => {
+const searchBing = async (query, limit = 6) => {
   const response = await fetch(`https://www.bing.com/search?q=${encodeURIComponent(query)}`, {
     headers: { "user-agent": "Mozilla/5.0" },
   });
@@ -141,15 +157,37 @@ const searchBing = async (query, limit = 4) => {
     const link = unwrapBingUrl(titleMatch[1]);
     const description = stripTags(snippetMatch?.[1] || "Manual ou página técnica encontrada em busca externa.");
 
-    const relevance = `${title} ${link} ${description}`.toLowerCase();
-    const blocked = ["prefeitura", "wikipedia", "mercado livre", "apkpure"].some((term) => relevance.includes(term));
-    const looksRelevant = ["manual", "pdf", "balança", "balanca", "prix", "indicador", "pesagem"].some((term) =>
-      relevance.includes(term),
+    results.push({ title, link, description });
+  }
+
+  return results;
+};
+
+// Bing e DuckDuckGo às vezes devolvem páginas genéricas (ajuda do navegador,
+// resultados de outro idioma) quando não reconhecem bem a busca. Só aceita o
+// resultado se ele realmente citar um termo da busca original (ex.: "ind560")
+// e tiver cara de manual/ficha técnica — não só palavras genéricas nossas.
+const filterRelevantManuals = (rawResults, originalQuery, limit = 4) => {
+  const queryTerms = normalizeForMatch(originalQuery)
+    .split(/[^a-z0-9]+/)
+    .filter((term) => term.length > 2);
+
+  const results = [];
+  for (const item of rawResults) {
+    if (results.length >= limit) break;
+    if (!item.title || !item.link) continue;
+
+    const relevance = normalizeForMatch(`${item.title} ${item.link} ${item.description || ""}`);
+    const blocked = ["prefeitura", "wikipedia", "mercado livre", "apkpure", "reddit.com", "systeme.io", "google.com/chrome"].some(
+      (term) => relevance.includes(term),
+    );
+    const mentionsQuery = !queryTerms.length || queryTerms.some((term) => relevance.includes(term));
+    const looksLikeManual = ["manual", "pdf", "balanca", "indicador", "pesagem", "datasheet", "ficha tecnica", "guia"].some(
+      (term) => relevance.includes(term),
     );
 
-    if (!title || !link || blocked || !looksRelevant) continue;
-
-    results.push({ title, link, description });
+    if (blocked || !mentionsQuery || !looksLikeManual) continue;
+    results.push(item);
   }
 
   return results;
@@ -310,11 +348,13 @@ const handleExternalSearch = async (req, res) => {
   try {
     const manualQuery = enhanceManualQuery(query);
     const videoQuery = `${query} balança tutorial calibração operação`;
-    const [foundManuals, videos] = await Promise.all([
-      searchBing(manualQuery, 4),
+    const [duckResults, bingResults, videos] = await Promise.all([
+      searchDuckDuckGo(manualQuery, 6).catch(() => []),
+      searchBing(manualQuery, 6).catch(() => []),
       searchYouTube(videoQuery, 4),
     ]);
     const known = searchKnownManuals(query, 4);
+    const foundManuals = filterRelevantManuals([...duckResults, ...bingResults], query, 6);
     const manuals = [...known, ...foundManuals].filter(
       (manual, index, list) => list.findIndex((item) => item.link === manual.link) === index,
     ).slice(0, 4);

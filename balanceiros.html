@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <header class="site-header solid" data-header>
@@ -29,18 +29,15 @@
       <section class="balance-hero">
         <div class="balance-hero-copy">
           <p class="eyebrow">Central dos balanceiros</p>
-          <h1>Tutoriais, manuais e ajuda para balanças em campo.</h1>
-          <p>
-            Encontre material por marca e modelo, publique vídeos ou PDFs e consulte fontes externas dentro do próprio site
-            quando o conteúdo ainda não existir no acervo.
-          </p>
+          <h1>Manuais, vídeos e ajuda técnica por marca e modelo.</h1>
+          <p>Digite o modelo, filtre por marca e abra o material direto aqui. Sem cadastro para consultar.</p>
         </div>
       </section>
 
       <section class="balance-dashboard" aria-label="Resumo da central">
-        <article><span>09</span><strong>manuais externos cadastrados</strong></article>
-        <article><span>03</span><strong>marcas organizadas em abas</strong></article>
-        <article><span>PDF</span><strong>separado dos vídeos</strong></article>
+        <article><span>68</span><strong>manuais cadastrados</strong></article>
+        <article><span>11</span><strong>marcas organizadas</strong></article>
+        <article><span>PDF + vídeo</span><strong>separados por aba</strong></article>
       </section>
 
       <nav class="balance-nav-tabs" aria-label="Navegação da central">
@@ -118,6 +115,14 @@
             <button class="brand-tab" type="button" data-manual-tab="Toledo">Toledo</button>
             <button class="brand-tab" type="button" data-manual-tab="Filizola">Filizola</button>
             <button class="brand-tab" type="button" data-manual-tab="Celmi">Celmi</button>
+            <button class="brand-tab" type="button" data-manual-tab="Urano">Urano</button>
+            <button class="brand-tab" type="button" data-manual-tab="Ramuza">Ramuza</button>
+            <button class="brand-tab" type="button" data-manual-tab="Alfa">Alfa</button>
+            <button class="brand-tab" type="button" data-manual-tab="Systel">Systel</button>
+            <button class="brand-tab" type="button" data-manual-tab="UPX">UPX</button>
+            <button class="brand-tab" type="button" data-manual-tab="Balmak">Balmak</button>
+            <button class="brand-tab" type="button" data-manual-tab="Elgin">Elgin</button>
+            <button class="brand-tab" type="button" data-manual-tab="Weightech">Weightech</button>
             <button class="brand-tab" type="button" data-manual-tab="Comunidade">Comunidade</button>
           </div>
           <label class="manual-model-search">Buscar modelo nos manuais<input type="search" placeholder="Digite o modelo desejado" data-manual-model-search /></label>
@@ -125,19 +130,28 @@
 
           <div class="manual-brand-list">
             <article class="manual-brand-group active" data-manual-panel="Toledo">
-              <header><span>Toledo</span><strong>3 manuais cadastrados</strong></header>
+              <header><span>Toledo</span><strong>8 manuais cadastrados</strong></header>
               <div class="manual-items">
                 <a data-manual-model="Prix 7E" href="https://www.toledobrasil.com/produtos/manuais-de-usuario/"><b>Prix 7E</b><small>Manual do usuário da balança comercial.</small></a>
                 <a data-manual-model="Prix Rebanho" href="https://www.toledobrasil.com/produtos/manuais-de-usuario/"><b>Prix Rebanho</b><small>Manual para balança de gado.</small></a>
                 <a data-manual-model="2098 2098 C" href="https://www.toledobrasil.com/produtos/manuais-de-usuario/"><b>2098 e 2098 C</b><small>Manual do usuário para os modelos 2098.</small></a>
+                <a data-manual-model="3 Fit" href="https://stportalcorporativoprd.blob.core.windows.net/blobappportalc63534e8570/wp-content/uploads/2024/08/MU-3-Fit-01-25-Rev.-14.pdf"><b>3 Fit</b><small>Manual do Usuário - Balança 3 Fit.</small></a>
+                <a data-manual-model="2180 Piso" href="https://stportalcorporativoprd.blob.core.windows.net/blobappportalc63534e8570/wp-content/uploads/2023/11/13_pt_manual_1573659571.pdf"><b>2180 Piso</b><small>Manual do Usuário - Balança de Piso 2180.</small></a>
+                <a data-manual-model="2090 Bancada" href="https://stportalcorporativoprd.blob.core.windows.net/blobappportalc63534e8570/wp-content/uploads/2024/07/18_pt_manual_1636552259.pdf"><b>2090 Bancada</b><small>Manual do Usuário - Balança de Bancada 2090.</small></a>
+                <a data-manual-model="Portátil 2124" href="https://stportalcorporativoprd.blob.core.windows.net/blobappportalc63534e8570/wp-content/uploads/2024/07/19_pt_manual_1573740029.pdf"><b>Portátil 2124</b><small>Guia Rápido - Balança Portátil 2124.</small></a>
+                <a data-manual-model="Manual Toledo 20" href="https://stportalcorporativoprd.blob.core.windows.net/blobappportalc63534e8570/wp-content/uploads/2024/07/20_pt_manual_1701428841.pdf"><b>Manual Toledo 20</b><small>Manual do Usuário Toledo (modelo diverso).</small></a>
               </div>
             </article>
             <article class="manual-brand-group" data-manual-panel="Filizola">
-              <header><span>Filizola</span><strong>3 manuais cadastrados</strong></header>
+              <header><span>Filizola</span><strong>7 manuais cadastrados</strong></header>
               <div class="manual-items">
                 <a data-manual-model="Platina" href="https://drbalanca.com.br/videos/cadastro-produtos-filizola-platina-manual/"><b>Platina</b><small>Instalação, operação e cadastro de produtos.</small></a>
                 <a data-manual-model="BP BPS" href="https://pt.scribd.com/document/351374380/Manual-do-usuario-Filizola-Bp-BPS-WWW-DRBALANCA-COM-BR-pdf"><b>BP / BPS</b><small>Manual de instalação e operação.</small></a>
                 <a data-manual-model="Portátil bovinos" href="https://www.oswaldofilizola.com.br/pdf/manualbdpb.pdf"><b>Portátil para bovinos</b><small>Manual PDF com orientações de uso e bateria.</small></a>
+                <a data-manual-model="Dinamômetro Crown DBC/DAC/DSM" href="https://download1529.mediafire.com/bjsmvj3kegugT96M860iRE8hab58JFFh7V9CGyofmzD_FvH8SiAnf8upgY0Eri2iKpFQ2NWBbt6bK9wHhYBkroZpgnEpE84xoAh1MHs-NWN-LgK2FZhfiqyIheR9yxo6BZ3uyV4tfOGN_6FwOATu0KqhMIUlfNSio1cGhd1btOUI-mNf/6q1jocs9qh3c3sa/manual-dinamometro-crown-DBC-DAC-DSM-oswaldo-filizola.pdf"><b>Dinamômetro Crown DBC/DAC/DSM</b><small>Manual - Dinamômetro Crown DBC-DAC-DSM.</small></a>
+                <a data-manual-model="Dinamômetro Digital MO-IWB" href="https://download1472.mediafire.com/jt1xbqo8p9zgYB30X6NcRMzM1ZN47lGCwOhWCZJyrHdwBL5JzsC3_As3v2gZuPY4X3iHENZQs0AwOF8B7p-MFUOkBHz_UxIy_V8Q3s79O4qh4wKoARfq_wvOQqgdm2dIbh6FJtfGji1pK-Fjzex_WF-cE68DZR_b-scVLVpMJl2PmG0/k38zknrpjsfkhou/manual-dinamometro-digital-mo-IWB-oswaldo-filizola.pdf"><b>Dinamômetro Digital MO-IWB</b><small>Manual - Dinamômetro Digital MO-IWB.</small></a>
+                <a data-manual-model="Máquina Universal AME/BME" href="https://download856.mediafire.com/2bg73rcziolgrRgjr5Mzcl7-zjGL2LASw2VUqOJlvZRmhTx1bvOo3C5Y34s2YsCFnIGZ524uBbEJen5hqptAiK7U9Da3M4wDGd9Dg1uyADT4yL-M71IUQeC1GUH-Ph1gzyCJMF7jcq-dZljUgaAu9wymUsBzvgC19KzLfCIDBAn-Qxcq/1ojigueworu2vot/manual-maquinas-universais-AME-BME-oswaldo-filizola.pdf"><b>Máquina Universal AME/BME</b><small>Manual - Máquinas Universais AME-BME.</small></a>
+                <a data-manual-model="Máquina Universal DME" href="https://download856.mediafire.com/ef6f5huo847g6SWaksD3t0OI-eHrkvP8IdN1CFEaer7Ed566ORpoIzULE74k_0bc-Hxp0Sl8gvzvcO95ur2rxv4RFEjqE4JX35GSxmZF0m0NsXpeHsFX3P_11Ay4tkkJ_m4AiSu3YkWWRZjNCk5NO2JAsOcaoRl2ynivMapS8tnemw7i/v96dn486pv52caq/manual-maquinas-universais-DME-oswaldo-filizola.pdf"><b>Máquina Universal DME</b><small>Manual - Máquinas Universais DME.</small></a>
               </div>
             </article>
             <article class="manual-brand-group" data-manual-panel="Celmi">
@@ -146,6 +160,96 @@
                 <a data-manual-model="CSP-10A" href="https://pt.scribd.com/document/584547067/Manual-Te-cnico-CSP10A"><b>CSP-10A</b><small>Manual técnico para instalação e calibração.</small></a>
                 <a data-manual-model="CSP-10B" href="https://www.scribd.com/document/772221980/Manual-CSP-10B"><b>CSP-10B</b><small>Manual do indicador de pesagem sem fio.</small></a>
                 <a data-manual-model="CSP-10Ci" href="https://www.celmi.com.br/produtos/terminais-e-indicadores/indicador-csp-10ci"><b>CSP-10Ci</b><small>Página técnica oficial do indicador.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="Urano">
+              <header><span>Urano</span><strong>7 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="US MS/MD Maximus IV" href="https://www.urano.com.br/media/wysiwyg/manuais/11.50.302.0130_1.3%20(Man%20Oper%20Bal%20US%20MS%20MD%20MAXIMUS%20IV).pdf"><b>US MS/MD Maximus IV</b><small>Manual de Operação - Balança US MS/MD Maximus IV.</small></a>
+                <a data-manual-model="Urano Lab" href="https://www.urano.com.br/media/wysiwyg/manuais/11.50.302.0300_1.3%20(Man%20Oper%20para%20Bal%20URANO%20LAB%20com%20Bot%C3%A3o%20de%20Calibra%C3%A7%C3%A3o).pdf"><b>Urano Lab</b><small>Manual de Operação - Balança Urano Lab.</small></a>
+                <a data-manual-model="UDC CO/COE" href="https://www.urano.com.br/media/wysiwyg/manuais/11.50.302.0273_1.2%20(Bal%20UDC%20CO%20-%20COE%20YS).pdf"><b>UDC CO/COE</b><small>Manual de Operação - Balança UDC CO/COE.</small></a>
+                <a data-manual-model="UDC POP" href="https://www.urano.com.br/media/wysiwyg/manuais/11.50.302.0170_1.8%20(Man%20Oper%20Bal%20UDC-POP).pdf"><b>UDC POP</b><small>Manual de Operação - Balança UDC POP.</small></a>
+                <a data-manual-model="UR10000 Light" href="https://www.urano.com.br/media/wysiwyg/manuais/11%2050%20302%200306_1%201%20(manual%20de%20opera%C3%A7%C3%A3o%20Bal-UR10000%20LIGHT%20300-100).pdf"><b>UR10000 Light</b><small>Manual de Operação - Balança UR10000 Light 300/100.</small></a>
+                <a data-manual-model="TOP" href="https://www.urano.com.br/media/wysiwyg/manuais/11.50.302.0127_1.5%20(Man%20Oper%20TOP).pdf"><b>TOP</b><small>Manual de Operação - Balança TOP (US MS/MD).</small></a>
+                <a data-manual-model="US-POP-S" href="https://www.urano.com.br/media/wysiwyg/manuais/11.50.302.0121_1.9%20(Man%20Oper%20Bal%20US-POP-S).pdf"><b>US-POP-S</b><small>Manual de Operação - Balança US-POP-S.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="Ramuza">
+              <header><span>Ramuza</span><strong>6 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="Atena II" href="https://ramuza.com.br/wp-content/uploads/2024/09/manual-do-usuario-atenaii-balanca-2018.pdf"><b>Atena II</b><small>Manual do Usuário - Balança Atena II.</small></a>
+                <a data-manual-model="Atena" href="https://vrsystem.info/assets/storage/os/2022/01/ManualDaBalancaAtena_7def3d1b-c840-474d-a7d6-830679d54b43.pdf"><b>Atena</b><small>Manual da Balança Atena.</small></a>
+                <a data-manual-model="Antropométrica 6 dígitos" href="https://download1076.mediafire.com/csk20srfkhfgr1_rN6ZdtzwNrfiMmTO3TOFSJFp7qPwNL7sGahJXtErEgLIKJbSDabpFIdr4pYngQNXPQSmA04cntJa4Q8i3KVwib24MYzpvruR6LhJYh4zTChvcWcI1Ea9m2Upcmbpk1Yk7h3QUnIKRVzIkPTNw_F94Fuv32DrnnxQ/qcjdrlg88fmol4e/manual-balanca-antropometrica-6-digitos-ramuza.pdf"><b>Antropométrica 6 dígitos</b><small>Manual - Balança Antropométrica 6 Dígitos.</small></a>
+                <a data-manual-model="DCR Computadora" href="https://download1650.mediafire.com/6ij1dsn7uc2gB7Z56zCLguGFX648obJs5rDhNht2rPgK-OvP_OkczvdEHxbDj1Oyd7-JQxiCxZR5H4ibKg_y-XXyMSrTcCVT1EY8fWA_a44Cv36t_-5kp8FAKI9cPgxNB9HaiiJVVlOUg8TDxpVA56-AZssvVv8Yp9mb_dbAkk1SfsR5/xus6u3mmxhihmm3/manual-balanca-computadora-pesadora-dcr-ramuza.pdf"><b>DCR Computadora</b><small>Manual - Balança Computadora Pesadora DCR.</small></a>
+                <a data-manual-model="Fitness/Farmácia" href="https://download1076.mediafire.com/qoo57zjfp4ggTaMN02wZPltrZhi9Q8OA8kxMOrhGB-QTP3c7Ei0bTWJ1rENywW9aySbbG_VBTM6W-AR4eYzPtlQsou-rqhVlXm3-wj_n5dJyCzqcOW755XVxT_LUS2xaZefSoyGtsWztSgzO96h7cKG0WG4Zn4VP7KjCFRB0S7PYT6YW/i2o2kt9fd37l74y/manual-balanca-fitness-farmacia-ramuza.pdf"><b>Fitness/Farmácia</b><small>Manual - Balança Fitness/Farmácia.</small></a>
+                <a data-manual-model="Padeiro/Balcão/Industrial" href="https://download1076.mediafire.com/uxtgm954fvigMfn0B5bA6Hoz7iyQXSpQv7cVyEGlHGpR3EBVlwCM5t0-tJF67LB3bANT6NiZ4QC6_H5bRDVUInYpxkCBWg4RAjQh0O6fwDc_uJyNhT63Aai8CwyJw7beDHKggw5wB4y30ozeP1lqE25SXEN1g231mJ-aZEaoXnR-71HN/vga2mukvhiq7ytr/manual-balanca-padeiro-balcao-contadoras-e-industriais-ramuza.pdf"><b>Padeiro/Balcão/Industrial</b><small>Manual - Balança Padeiro, Balcão e Industrial.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="Alfa">
+              <header><span>Alfa</span><strong>8 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="Plataforma Mod. A" href="https://cdn.alfainstrumentos.com.br/wp-content/uploads/2017/04/0303CM03-PLATAFORMA-MOD-A.pdf"><b>Plataforma Mod. A</b><small>Manual - Plataforma Mod. A.</small></a>
+                <a data-manual-model="Balança de Piso" href="https://www.alfainstrumentos.com.br/wp-content/uploads/2024/06/WEB0002CL.01_BALANCA_PISO.pdf"><b>Balança de Piso</b><small>Manual - Balança de Piso.</small></a>
+                <a data-manual-model="Balança de Bancada" href="https://www.alfainstrumentos.com.br/wp-content/uploads/2024/06/WEB0013CL.01_BALANCA_BANCADA.pdf"><b>Balança de Bancada</b><small>Manual - Balança de Bancada.</small></a>
+                <a data-manual-model="Indicador 0132MN" href="https://www.alfainstrumentos.com.br/wp-content/uploads/2025/12/0132MN04.pdf"><b>Indicador 0132MN</b><small>Manual do Usuário - Indicador de Pesagem 0132MN.</small></a>
+                <a data-manual-model="Indicadores Linha 3100C" href="https://www.alfainstrumentos.com.br/wp-content/uploads/2024/06/Indicadores-de-Pesagem-Linha-3100C-e0ALinha-3100C.S.pdf"><b>Indicadores Linha 3100C</b><small>Manual - Indicadores de Pesagem Linha 3100C.</small></a>
+                <a data-manual-model="Indicador 3101CS" href="https://www.alfainstrumentos.com.br/wp-content/uploads/2025/11/3101CS.pdf"><b>Indicador 3101CS</b><small>Manual - Indicador de Pesagem 3101CS.</small></a>
+                <a data-manual-model="Indicador 3102CS" href="https://www.alfainstrumentos.com.br/wp-content/uploads/2025/11/3102CS.pdf"><b>Indicador 3102CS</b><small>Manual - Indicador de Pesagem 3102CS.</small></a>
+                <a data-manual-model="Indicador 3105C" href="https://www.alfainstrumentos.com.br/wp-content/uploads/2024/06/MANUAL3105C-1.pdf"><b>Indicador 3105C</b><small>Manual - Indicador de Pesagem 3105C.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="Systel">
+              <header><span>Systel</span><strong>5 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="Cuora Neo" href="https://systel-global.com/downloads/Manual-Cuora-Neo-br.pdf"><b>Cuora Neo</b><small>Manual - Balança Cuora Neo.</small></a>
+                <a data-manual-model="Cuora Neo (folheto)" href="https://systel-global.com/downloads/Folheto-Cuora-Neo.pdf"><b>Cuora Neo (folheto)</b><small>Folheto - Balança Cuora Neo.</small></a>
+                <a data-manual-model="Clipse" href="https://systel-global.com/downloads/34516-08-Manual-Clipse-BRA.pdf"><b>Clipse</b><small>Manual - Balança Clipse.</small></a>
+                <a data-manual-model="Clipse (folheto)" href="https://systel-global.com/downloads/Folheto-Clipse-.pdf"><b>Clipse (folheto)</b><small>Folheto - Balança Clipse.</small></a>
+                <a data-manual-model="Passer" href="https://systel-global.com/downloads/Protocolos-Passer-Rev-1.0.pdf"><b>Passer</b><small>Protocolos - Balança Passer.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="UPX">
+              <header><span>UPX</span><strong>7 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="Blue One Pet Coluna" href="https://download850.mediafire.com/dpu771wjzwbgN-tFuB4iNLNcY1BJT7uP6mt6XP15HiOmu8dDDB3wRi2zss6gKsOWjpqj3RUs-8ofmxwHXTL93Wx9TfpaPxsebw2rPhop1giAaNsn79DCJdN3KCJX4Ir3yOZmFINTWfW0CQcu7XkwjA62WZjU-onBu-fAcTEP-GAsLo9s/1j3t1lpi00kuk06/manual-balanca-blue-one-pet-coluna-upx-solution.pdf"><b>Blue One Pet Coluna</b><small>Manual - Balança Blue One Pet Coluna.</small></a>
+                <a data-manual-model="Blue One Pet" href="https://download850.mediafire.com/j6dkbdiejbxgy4Satavq094QFGPHlPvJdWV10SyXUAwSGoiyzeNFiZFn3T7lWBjkNNNa-k760bOu0AT1CEdJcMRkt7qtbJKwq3WFeEts5GhYb7HswDiU0D3QR0Vms_QwdDV8z6FZq_4gz14ViT-djvkosoY2hPzZ9z-dkn0NnE6e_B0/v2cyw1bg0wym9nq/manual-balanca-blue-one-pet-upx-solution.pdf"><b>Blue One Pet</b><small>Manual - Balança Blue One Pet.</small></a>
+                <a data-manual-model="Blue One Premium" href="https://download850.mediafire.com/o6l2lqycsvagNYIGCDD-pa4_9Y_6PNcqw6uuJEp4GMTQ-OiulC4uoV1wxHs9sJOm0MNW_srVDjpLL8WRLV_ppHpfETpWDSdcbJic7KbnPPNEAK7R4ZoaCYpQ539xEVvW9kDvnrrEFx4FfJIkCmdAtqSBhE3FgLyLJz8tD9ALp8GvAHNn/o9dycpbpssi5dks/manual-balanca-blue-one-premium-upx-solution.pdf"><b>Blue One Premium</b><small>Manual - Balança Blue One Premium.</small></a>
+                <a data-manual-model="Check Out Blue One 20" href="https://download850.mediafire.com/8bjknrmzuw2g7xwGVB3IP7sPk3OQjx1Gmg1Hh24yf-yP7YTVgFqExXFrO214_rRbZK8Xhvf8sKPWSQqQQvJ5nyrZPUJXjBqIJXt8zGILJVOpKTkBgVHgPeupOLNQISjFo3c5sBYJpir17os3Pl4uK3zxpHKOxdOs_P6ZKt1aCf79xa0Y/86g78cqpby743um/manual-balanca-check-out-blue-one-20-upx-solution.pdf"><b>Check Out Blue One 20</b><small>Manual - Balança Check Out Blue One 20.</small></a>
+                <a data-manual-model="EA-20 Computadora" href="https://download1474.mediafire.com/rtuhyfy4kxwgyWXVHj5m--C4Hnq7h0p-8LS1N8VAPduJrks_y2qObf5Fgj2CuvrfXZWjIlSNZ91HSCuSzFziZsAzvpcG0r2-uYQsODKPXBZHnLQYEm7lZVrNF8RSL3SlayNIoFP-Wr-wNs822m7bytp3ybYx79t3lfIVujgC5_DTSYo/htvupxkq72j2da2/manual-balanca-computadora-ea-20-upx-solution.pdf"><b>EA-20 Computadora</b><small>Manual - Balança Computadora EA-20.</small></a>
+                <a data-manual-model="Wind 3D Computadora" href="https://download937.mediafire.com/34bk09scmg6g0AJxkRBNZvlWlwLmb41zea-FjNZVW2EsN_9Kry57uBRIsYKLQRt4dbCa5aixD0fZFEoorL2tL67XdehFiq6i-2a0nvqoJ89Ybn7yX2KkJSHFBhK6im_F-289G9y21P0yKhfkqvG_LHP1sHF0CFwwgZBCfLO23TMfiKu3/2uipyurp6qr4c8n/manual-balanca-computadora-wind-3d-upx-solution.pdf"><b>Wind 3D Computadora</b><small>Manual - Balança Computadora Wind 3D.</small></a>
+                <a data-manual-model="Thunder" href="https://download1472.mediafire.com/0r2b5aipdgegwOLlLL-FpWUvLKoivcKiMrwrIwZX7tfQ48JUekwKXS1uuVJi2go8qjo1iJe-PS9bWWDvcGzIn38ZHhhqMEO6deWSo3Pr-43p-grwh3RWNZtylpZUfawI_btVLRWRDP74I-oIVOHRg3XHgbvtty8jvWmFgPomoMYAaMQ/uvpt1r8b488uuqs/manual-balanca-thunder-upx-solution.pdf"><b>Thunder</b><small>Manual - Balança Thunder.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="Balmak">
+              <header><span>Balmak</span><strong>10 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="BCK-30 Check Out" href="https://download1335.mediafire.com/uwz3d87eml1griOVHEa9PslZyH1tHqlh9NpWE0QTw-8V3NZA-yN7TMDO8lyKHIPnDf6G3hKmCdk5O5Fnm8QJlvoOFYfc8vWZvpGUTEpH5GT8gH9Cq9tB7iWs_n_BRzbZdeSes4D148YvN6VcBNuheCyWEwkz2aNu3sJ8W908uGeVEZ8Z/87a2t1yimrntrx5/manual-balanca-BCK-30-check-out-balmak.pdf"><b>BCK-30 Check Out</b><small>Manual - Balança BCK-30 Check Out.</small></a>
+                <a data-manual-model="Actlife SLIMTOP 180" href="https://download1584.mediafire.com/pdjkcdsw9hhgIXVvbLYWcJq4eKHBb3xIn0PvQEyeoZrYyv768emQUVHnYCx2T_oUW16f8bB4wBcOAXtBjBSqAaLN3J30GbOk3AYZrHOnaxfeMT_t4aopfwOGMgzDh0-HqQIVjF0oZlrIv29j971jszcaux6ZbiqSCF6tugtBLx8daep2/b63y7ggtf4ytv8w/manual-balanca-digital-Actlife-SLIMTOP-180-balmak.pdf"><b>Actlife SLIMTOP 180</b><small>Manual - Balança Digital Actlife SLIMTOP 180.</small></a>
+                <a data-manual-model="ELP-25BB Bebês" href="https://download1320.mediafire.com/n5rj8aogwkxgIB8_kJA4n57LfC6DcGjhPxXUKrLLXz7ZRizaagvkm5CawUcGNjKWYWAO12w60MRJCrYOaP2s6RdOLhltjUxAmrrmY0f61X5YfLOaQMFLLZhOd5d6VZLF0A2Zq9nJP7TF4jG7_32eWHJhyaSPC6ihuNvGbgkVe7ERM9GW/k2fil298qxf6meh/manual-balanca-digital-bebes-ELP-25BB-balmak.pdf"><b>ELP-25BB Bebês</b><small>Manual - Balança Digital Bebês ELP-25BB.</small></a>
+                <a data-manual-model="BKF/BKH-F" href="https://download1077.mediafire.com/tys5ssfp1adgv82k_EBd2YpasDYz3EMJ_NCVWJzJkKBV8_cD46t6jLcQDES7dyDV47oJjTcS9518aCiGULsBCIo8E8fu0XAhucmn6hyTKi-EeTVo7kRdWx1OEvQwr8kWZwogOU3dzvUzfLL3A5Cj8VKeUyrdPpZFQ5TpLFjPUCr46ObT/sbcsddc5jcat18q/manual-balanca-digital-BKF-BKH-F-balmak.pdf"><b>BKF/BKH-F</b><small>Manual - Balança Digital BKF/BKH-F.</small></a>
+                <a data-manual-model="LBC Computadora" href="https://download1322.mediafire.com/l6yviqhs0ikgB5knQbEn6HJsKO4uaom7s77EboxVMb2Xk6w1AOUbDpAnUS3UregQqPCWPVoFHPoxTsOLEAxY6aeqAdUEILuOA69nuTsaFWrWiae2gCdyvMsto_AJzZ4BdkOaJ0-yFy8RO8G1vNr_bc9DQjhmf-Df3JGnQyujO8Umem4x/2jttsu9f8sx5lph/manual-balanca-digital-computadora-LBC-balmak.pdf"><b>LBC Computadora</b><small>Manual - Balança Digital Computadora LBC.</small></a>
+                <a data-manual-model="NUTRI-5" href="https://download1529.mediafire.com/j5v7uslt3zzgCWHk9fCadg6fdeDGeAT03TXXf3_F6P1rWFkUqT2ar2KFSd8OlSl1lKnHrP6rPCzV0VfsKVJH-bC0hn465ep6xzJZy-3PJRYNTMD4Gk8IgGqpc-P5diD6j09SWARTWKaVMZO8yBMFi7QRvDz6_DrVutmX2N6UqKxlts4/110zd6hpiddy272/manual-balanca-digital-NUTRI-5-balmak.pdf"><b>NUTRI-5</b><small>Manual - Balança Digital NUTRI-5.</small></a>
+                <a data-manual-model="E-line Computadora" href="https://download1584.mediafire.com/geftag8l2jzgzRZ480iG8WFc2h8ulvEnNgbJqZ_V5lqljazOYU7Z3WA7Z1tgn1b0GsCC1gDMJvkoM_gMkXe98n6nCrKK6WUmLfW4nuygbXCCwyH8M7NBHpcJzWt-Ln_rDCx_sCIpkhXnZhSIE5xO60QXKWQgdyI3LCCxauRI67qHRInW/qgiyn9wnwxqo2c9/manual-balanca-e-line-computadora-balmak.pdf"><b>E-line Computadora</b><small>Manual - Balança E-line Computadora.</small></a>
+                <a data-manual-model="One Computadora" href="https://download1980.mediafire.com/80kgztn84nqgpz6tgLI3D9vEdzHWSF96PX7epi2eqYtRzOHJEXIszdroFiYmCP89eczdQsYEuk-E-KPCmzw8LxJ1FTL4PgclwZRa7Dkl6HgZ7LDhedoao2Kr5fuca4OSD3sPpj_rdHTESio8HkPs6kTVSM4rRlDsq5_s3iUjAfCFktrv/l1rm5qsuk2miz5j/manual-balanca-one-computadora-balmak.pdf"><b>One Computadora</b><small>Manual - Balança One Computadora.</small></a>
+                <a data-manual-model="Orion 1" href="https://download1587.mediafire.com/wdyobqf61skg7_a-VJ-NWN6i5APZASpulSd8aznTeHLmR7Md0IaC0Hp_4OpaZ0GRXXHiDsedZ4kbld9yBVVXfZsCO_PqOyWQfdaOwu48MtxRdGIfM0ko-tfV8sSReUtGJmfkrx5pSM1gCsrcX9iRsrfnLbbLFnn2GJ00QVYA7YdqpWQ/i9kgxqqvc0a02g2/manual-balanca-orion-1-balmak.pdf"><b>Orion 1</b><small>Manual - Balança Orion 1.</small></a>
+                <a data-manual-model="DFS" href="https://download1588.mediafire.com/zxssbnrkl0ggFiBxiP0wh3XdfqG0oYUgZKxGu_ACfL7XVoplJ4HiMYCR_qw0taf0-45j3ySdAMWv4csImFsW4BUOQdFih_YqPk5D1srFpc9wNHgkD4EUF18KvAlKSek2G0qebaXxlp-7Rr3rcPbqlY8fH8DTTF3glhzVi12H5GkxIck/6toea05g6872mwf/manual-DFS-balmak.pdf"><b>DFS</b><small>Manual - Sistema DFS Balmak.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="Elgin">
+              <header><span>Elgin</span><strong>4 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="DP15 Plus" href="https://gazin-marketplace.s3.amazonaws.com/midias/manuais/balanca-computadora-elgin-15kg-com-bateria-dp15-plus-112204122806.pdf"><b>DP15 Plus</b><small>Manual - Balança Computadora DP15 Plus.</small></a>
+                <a data-manual-model="Linha DP" href="http://elgin.imagenet.eti.br/imagenet/DownloadCenter/2018-12-20_11-05-280_64370600.pdf"><b>Linha DP</b><small>Manual do Usuário - Balança Computadora Linha DP.</small></a>
+                <a data-manual-model="EL250" href="http://elgin.imagenet.eti.br/imagenet/DownloadCenter/2020-08-25_18-16-280_95048500.pdf"><b>EL250</b><small>Manual de Usuário - EL250.</small></a>
+                <a data-manual-model="SA-110" href="http://elgin.imagenet.eti.br/imagenet/DownloadPublico/Automacao/Balancas/SA110/Manual%20de%20Servicos%20SA-110.pdf"><b>SA-110</b><small>Manual de Serviços - Balança SA-110.</small></a>
+              </div>
+            </article>
+            <article class="manual-brand-group" data-manual-panel="Weightech">
+              <header><span>Weightech</span><strong>3 manuais cadastrados</strong></header>
+              <div class="manual-items">
+                <a data-manual-model="WT-420" href="https://primaxbalancas.com.br/wp-content/uploads/WT-420-ficha-tecnica.pdf"><b>WT-420</b><small>Ficha Técnica - Indicador WT-420.</small></a>
+                <a data-manual-model="WT-1000 LED" href="https://primaxbalancas.com.br/wp-content/uploads/Manual-tecnico-WT-1000-LED.pdf"><b>WT-1000 LED</b><small>Manual Técnico - Indicador WT-1000 LED.</small></a>
+                <a data-manual-model="WT-21 CSI" href="https://primaxbalancas.com.br/wp-content/uploads/Manual-tecnico-WT-21-CSI.pdf"><b>WT-21 CSI</b><small>Manual Técnico - Indicador WT-21 CSI.</small></a>
               </div>
             </article>
             <article class="manual-brand-group" data-manual-panel="Comunidade">

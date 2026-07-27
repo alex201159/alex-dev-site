@@ -4636,3 +4636,197 @@ textarea {
 .sales-empty .button {
   border-radius: 999px;
 }
+
+/* ============================================================
+   BALANCEIROS — busca técnica, direta e sem frescura (nova versão)
+   ============================================================ */
+
+.balance-page {
+  background: var(--bg);
+}
+
+.balance-hero p {
+  font-size: 0.98rem;
+}
+
+.balance-search-card,
+.balance-sidebar,
+.balance-content,
+.manual-library,
+.question-card {
+  background: var(--panel);
+}
+
+.balance-search-card {
+  box-shadow: none;
+}
+
+.balance-nav-tabs a {
+  font-family: "IBM Plex Mono", "Inter", monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.brand-tab {
+  background: transparent;
+}
+
+.brand-tab.active {
+  box-shadow: 0 8px 20px rgba(142, 214, 107, 0.2);
+}
+
+.balance-dashboard span {
+  font-family: "IBM Plex Mono", "Inter", monospace;
+}
+
+/* Rótulo de tipo (PDF / Vídeo) como chip compacto */
+.manual-items a em,
+.community-material > span,
+.live-result-card > span,
+.quick-result-card > span {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 0;
+  border-radius: 6px;
+  padding: 3px 8px;
+  color: var(--accent);
+  font-family: "IBM Plex Mono", "Inter", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background: rgba(142, 214, 107, 0.12);
+}
+
+/* Manuais: lista compacta em vez de cards decorados */
+.manual-items {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.manual-items a {
+  min-height: 0;
+  gap: 6px;
+  background: #111315;
+}
+
+.manual-items a b {
+  font-family: "IBM Plex Mono", "Inter", monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.manual-items a small {
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: 1.45;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Vídeos da comunidade: mesma lógica de lista compacta */
+.community-feed {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.community-material {
+  min-height: 0;
+  padding: 14px;
+  background: #111315;
+}
+
+.community-material h3 {
+  margin: 8px 0 8px;
+  font-size: 1.02rem;
+  line-height: 1.3;
+}
+
+.community-material p {
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: 1.5;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.community-material a {
+  margin-top: 12px;
+  padding: 0;
+  color: var(--accent);
+  font-weight: 700;
+  background: none;
+}
+
+.community-material a::after {
+  content: "→";
+  margin-left: 4px;
+}
+
+.material-meta b,
+.material-meta em {
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-family: "IBM Plex Mono", "Inter", monospace;
+  font-size: 0.76rem;
+}
+
+/* Resultados externos (ao vivo) e resultados da busca rápida: mesmo tratamento */
+.live-result-card,
+.quick-result-card {
+  padding: 12px;
+  background: #111315;
+}
+
+.live-result-card h4,
+.quick-result-card h3 {
+  font-size: 0.98rem;
+  line-height: 1.3;
+}
+
+.live-result-card p,
+.quick-result-card p {
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: 1.5;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.live-result-card a,
+.quick-result-card a {
+  padding: 0;
+  color: var(--accent);
+  font-weight: 700;
+  background: none;
+}
+
+.live-result-card a::after,
+.quick-result-card a::after {
+  content: "→";
+  margin-left: 4px;
+}
+
+.quick-result-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+/* Perguntas: tags de marca/modelo em monoespaçada */
+.question-card-head span,
+.question-card-head em {
+  border-radius: 6px;
+  font-family: "IBM Plex Mono", "Inter", monospace;
+  font-size: 0.76rem;
+}
+
+.question-card {
+  padding: 16px;
+}
+
+@media (max-width: 700px) {
+  .manual-items,
+  .community-feed,
+  .quick-result-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -53,7 +53,7 @@ const communityStorageKey = "alex-dev-balanceiros-materials";
 const authStorageKey = "alex-dev-google-user";
 const questionStorageKey = "alex-dev-balanceiros-questions";
 const adminPasswordStorageKey = "alex-dev-admin-password";
-const mainBrands = ["Toledo", "Filizola", "Celmi"];
+const mainBrands = ["Toledo", "Filizola", "Celmi", "Urano", "Ramuza", "Alfa", "Systel", "UPX", "Balmak", "Elgin", "Weightech"];
 let selectedMaterialBrand = "all";
 let selectedManualBrand = "all";
 let externalSearchAbort;
@@ -269,11 +269,19 @@ const dataUrlToObjectUrl = (dataUrl) => {
   }
 };
 
+// Hosts que bloqueiam incorporação em iframe (X-Frame-Options) ou cujo link
+// direto expira com o tempo — melhor mandar direto para "Abrir fonte
+// original" do que tentar embutir e mostrar um erro de conexão dentro do site.
+const nonEmbeddableHosts = ["mediafire.com"];
+
 const openPdfViewer = (title, link) => {
   if (!pdfViewer || !pdfFrame) return false;
 
   const cleanLink = String(link || "");
-  const canEmbed = cleanLink.startsWith("blob:") || cleanLink.startsWith("data:application/pdf") || cleanLink.toLowerCase().includes(".pdf");
+  const isBlockedHost = nonEmbeddableHosts.some((host) => cleanLink.toLowerCase().includes(host));
+  const canEmbed =
+    !isBlockedHost &&
+    (cleanLink.startsWith("blob:") || cleanLink.startsWith("data:application/pdf") || cleanLink.toLowerCase().includes(".pdf"));
 
   pdfFrame.hidden = !canEmbed;
   if (pdfBlocked) pdfBlocked.hidden = canEmbed;
@@ -1004,6 +1012,57 @@ const openResultsPage = (query) => {
   window.open(`resultados.html?q=${encodeURIComponent(cleanQuery)}`, "_blank", "noopener,noreferrer");
 };
 
+// Mesma lógica do app Flutter (LocalCatalogService._normalize): remove
+// acentos e pontuação para comparar consultas com os modelos cadastrados.
+const normalizeSearchText = (input) => {
+  const accented = "áàâãäéèêëíìîïóòôõöúùûüçñ";
+  const plain = "aaaaaeeeeiiiiooooouuuucn";
+  let result = String(input).toLowerCase();
+  for (let i = 0; i < accented.length; i += 1) {
+    result = result.replaceAll(accented[i], plain[i]);
+  }
+  return result.replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+};
+
+// Mesma lógica do app Flutter (LocalCatalogService.findMatch): acha o
+// manual já cadastrado no acervo cujo modelo mais combina com a busca.
+const findLocalManualMatch = (query) => {
+  const normalizedQuery = normalizeSearchText(query);
+  if (!normalizedQuery) return null;
+
+  let best = null;
+  let bestScore = 0;
+
+  document.querySelectorAll("[data-manual-model]").forEach((link) => {
+    const model = link.dataset.manualModel || "";
+    if (!model) return;
+
+    const brand = link.closest("[data-manual-panel]")?.dataset.manualPanel || "";
+    const normalizedModel = normalizeSearchText(model);
+    const normalizedBrand = normalizeSearchText(brand);
+    if (!normalizedModel) return;
+
+    const brandBonus = normalizedBrand && normalizedQuery.includes(normalizedBrand) ? 10 : 0;
+    let score = 0;
+
+    if (normalizedQuery.includes(normalizedModel) || normalizedModel.includes(normalizedQuery)) {
+      score = normalizedModel.length + brandBonus;
+    } else {
+      const words = normalizedModel.split(" ").filter(Boolean);
+      if (words.length && words.every((word) => normalizedQuery.includes(word))) {
+        score = words.join("").length + brandBonus;
+      }
+    }
+
+    if (score > bestScore) {
+      bestScore = score;
+      best = { link, brand };
+    }
+  });
+
+  return best;
+};
+
 const renderAuthState = () => {
   const user = getCurrentUser();
 
@@ -1370,17 +1429,29 @@ const renderManualTabs = () => {
     button.classList.toggle("active", button.dataset.manualTab === selectedManualBrand);
   });
 
-  manualPanels.forEach((panel) => {
-    const isActive = selectedManualBrand === "all" ? Boolean(search) : panel.dataset.manualPanel === selectedManualBrand;
-    panel.classList.toggle("active", isActive);
-    if (!isActive) return;
+  const isAllMode = selectedManualBrand === "all";
 
+  manualPanels.forEach((panel) => {
+    const isActive = isAllMode ? Boolean(search) : panel.dataset.manualPanel === selectedManualBrand;
+    if (!isActive) {
+      panel.classList.remove("active");
+      return;
+    }
+
+    let panelVisibleCount = 0;
     panel.querySelectorAll("[data-manual-model]").forEach((item) => {
       const haystack = `${item.dataset.manualModel || ""} ${item.textContent}`.toLowerCase();
       const isHidden = !search ? false : !haystack.includes(search);
       item.classList.toggle("hidden", isHidden);
-      if (!isHidden) visibleManualCount += 1;
+      if (!isHidden) {
+        visibleManualCount += 1;
+        panelVisibleCount += 1;
+      }
     });
+
+    // No modo "Todas" com busca, só mostra a marca se ela tiver resultado —
+    // evita poluir a tela com cabeçalhos de marcas sem nenhum manual encontrado.
+    panel.classList.toggle("active", !isAllMode || !search || panelVisibleCount > 0);
   });
 
   if (manualEmpty) {
@@ -1498,9 +1569,28 @@ contributeForm?.addEventListener("submit", async (event) => {
   window.open(`https://wa.me/${ownerPhone}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
 });
 
-quickSearchForm?.addEventListener("submit", (event) => {
+quickSearchForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
-  openResultsPage(materialSearch?.value || "");
+  const query = materialSearch?.value || "";
+
+  // Espera o acervo (manuais enviados por vocês/comunidade) terminar de
+  // carregar do servidor antes de decidir que não existe manual salvo —
+  // sem isso, uma busca rápida logo ao abrir a página podia cair na busca
+  // externa mesmo quando o manual já estava cadastrado no site.
+  await publicContentPromise;
+  renderManualTabs();
+
+  const match = findLocalManualMatch(query);
+  if (match) {
+    selectedManualBrand = match.brand || "all";
+    if (manualModelSearch) manualModelSearch.value = "";
+    renderManualTabs();
+    showBalancePanel("manuais");
+    match.link.click();
+    return;
+  }
+
+  openResultsPage(query);
 });
 
 balanceTabs.forEach((tab) => {
@@ -1656,6 +1746,6 @@ renderResultsPage();
 renderAuthState();
 renderQuestions();
 showBalancePanel((window.location.hash || "#busca-rapida").slice(1), false);
-renderPublicContent();
+const publicContentPromise = renderPublicContent();
 setupAdmin();
 setupMobileMenu();
