@@ -269,19 +269,23 @@ const dataUrlToObjectUrl = (dataUrl) => {
   }
 };
 
-// Hosts que bloqueiam incorporação em iframe (X-Frame-Options) ou cujo link
-// direto expira com o tempo — melhor mandar direto para "Abrir fonte
-// original" do que tentar embutir e mostrar um erro de conexão dentro do site.
-const nonEmbeddableHosts = ["mediafire.com"];
+// A maioria dos sites de fabricante/revenda bloqueia incorporação em iframe
+// (X-Frame-Options) ou tem link direto que expira (ex.: Mediafire) — por
+// experiência, isso já quebrou com Toledo, Mediafire e Alfa Instrumentos.
+// Em vez de ir bloqueando host por host conforme aparece erro, só tentamos
+// embutir quando a fonte é confiável (upload do próprio site ou storage bruto
+// tipo Azure Blob/S3, que normalmente não bloqueiam). Todo o resto manda
+// direto para "Abrir fonte original".
+const embeddablePdfHosts = ["blob.core.windows.net", "amazonaws.com"];
 
 const openPdfViewer = (title, link) => {
   if (!pdfViewer || !pdfFrame) return false;
 
   const cleanLink = String(link || "");
-  const isBlockedHost = nonEmbeddableHosts.some((host) => cleanLink.toLowerCase().includes(host));
-  const canEmbed =
-    !isBlockedHost &&
-    (cleanLink.startsWith("blob:") || cleanLink.startsWith("data:application/pdf") || cleanLink.toLowerCase().includes(".pdf"));
+  const lowerLink = cleanLink.toLowerCase();
+  const isOwnUpload = cleanLink.startsWith("/uploads/") || cleanLink.startsWith("blob:") || cleanLink.startsWith("data:application/pdf");
+  const isTrustedStorage = lowerLink.includes(".pdf") && embeddablePdfHosts.some((host) => lowerLink.includes(host));
+  const canEmbed = isOwnUpload || isTrustedStorage;
 
   pdfFrame.hidden = !canEmbed;
   if (pdfBlocked) pdfBlocked.hidden = canEmbed;
