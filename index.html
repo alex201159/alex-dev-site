@@ -7,7 +7,7 @@
     <meta name="description" content="Apps, programas, downloads e suporte técnico da Nexo Digital." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -26,101 +26,127 @@
     </header>
 
     <main class="home-page">
-      <section class="hero home-hero">
-        <img src="assets/hero-apps.png" alt="Interfaces modernas de aplicativos em telas de computador e celular" />
-        <div class="hero-shade"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Nexo Digital</p>
-          <h1>Apps, downloads, vendas e suporte em um só lugar.</h1>
-          <p class="hero-copy">
-            Uma central para apresentar meus aplicativos, vender produtos, entregar arquivos, ajudar clientes e organizar materiais técnicos para balanceiros.
-          </p>
+      <section class="hero-elegant">
+        <div class="elegant-aurora" aria-hidden="true"></div>
+        <div class="elegant-grid" aria-hidden="true"></div>
+
+        <div class="hero-elegant-inner">
+          <div class="hero-elegant-copy">
+            <p class="eyebrow">Nexo Digital</p>
+            <h1 class="hero-elegant-title">Precisão que começa no código<br /><em>e chega até você.</em></h1>
+            <p class="hero-elegant-lede">
+              Apps para balanças e produção, downloads, vendas e suporte técnico reunidos em um único endereço — feito para quem não pode parar a operação.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="apps.html">Ver apps</a>
+              <a class="button secondary" href="contato.html">Falar com suporte</a>
+            </div>
+            <ul class="hero-elegant-tags">
+              <li>Apps para balanceiros</li>
+              <li>Suporte direto</li>
+              <li>Materiais técnicos</li>
+            </ul>
+          </div>
+
+          <div class="hero-elegant-showcase" aria-hidden="true">
+            <div class="app-showcase-glow"></div>
+            <div class="app-showcase-card app-showcase-a">
+              <img src="assets/apps/lcpeso.png" alt="" />
+              <div class="app-showcase-label"><strong>LC Peso</strong><span>Controle de pesagem</span></div>
+            </div>
+            <div class="app-showcase-card app-showcase-b">
+              <img src="assets/apps/lcagro.jpg" alt="" />
+              <div class="app-showcase-label"><strong>LC Agro</strong><span>Gestão agro</span></div>
+            </div>
+            <div class="app-showcase-card app-showcase-c">
+              <img src="assets/apps/coletador-rbc.png" alt="" />
+              <div class="app-showcase-label"><strong>Coletador RBC</strong><span>Coleta de dados</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section elegant-section" id="visao-geral">
+        <div class="section-heading-elegant">
+          <p class="eyebrow">O que você encontra aqui</p>
+          <h2>Um só lugar para apresentar, vender, entregar e apoiar.</h2>
+        </div>
+        <div class="bento-grid">
+          <a class="bento-card bento-large" href="apps.html">
+            <span class="bento-index">01</span>
+            <h3>Portfólio de apps</h3>
+            <p>Cada aplicativo desenvolvido, com descrição, categoria e ícone próprio — pronto para o cliente entender em segundos.</p>
+            <div class="bento-app-icons">
+              <img src="assets/apps/lcpeso.png" alt="LC Peso" />
+              <img src="assets/apps/lcagro.jpg" alt="LC Agro" />
+              <img src="assets/apps/lccarga.jpg" alt="LC Carga" />
+              <img src="assets/apps/lc-trato.jpeg" alt="LC Trato" />
+              <img src="assets/apps/coleta-normal.png" alt="Coleta Normal" />
+              <span class="bento-app-icons-more">+ vários</span>
+            </div>
+            <span class="bento-link">Ver todos os apps →</span>
+          </a>
+          <a class="bento-card" href="downloads.html">
+            <span class="bento-index">02</span>
+            <h3>Downloads</h3>
+            <p>APKs, instaladores e manuais organizados para baixar sem enrolação.</p>
+          </a>
+          <a class="bento-card" href="vendas.html">
+            <span class="bento-index">03</span>
+            <h3>Vendas</h3>
+            <p>Vitrine com fotos, vídeos, preço e descrição completa dos produtos.</p>
+          </a>
+          <a class="bento-card" href="balanceiros.html">
+            <span class="bento-index">04</span>
+            <h3>Central de balanceiros</h3>
+            <p>Manuais por marca, vídeos por equipamento e busca rápida por dúvida.</p>
+          </a>
+          <a class="bento-card" href="ajuda.html">
+            <span class="bento-index">05</span>
+            <h3>Suporte técnico</h3>
+            <p>Canal direto para resolver instalação, Bluetooth, balança e erros do dia a dia.</p>
+          </a>
+          <a class="bento-card" href="contato.html">
+            <span class="bento-index">06</span>
+            <h3>Contato</h3>
+            <p>Fale direto comigo para orçamento, instalação ou uma dúvida rápida.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section elegant-steps">
+        <div class="section-heading-elegant">
+          <p class="eyebrow">Como funciona</p>
+          <h2>Do primeiro clique ao suporte contínuo.</h2>
+        </div>
+        <div class="steps-elegant">
+          <div class="step-elegant">
+            <span class="step-number">1</span>
+            <h3>Explore</h3>
+            <p>Conheça os apps e produtos disponíveis, com tudo explicado antes de você precisar perguntar.</p>
+          </div>
+          <div class="step-elegant">
+            <span class="step-number">2</span>
+            <h3>Baixe ou peça orçamento</h3>
+            <p>Baixe o que precisa diretamente ou peça um orçamento sob medida para o seu caso.</p>
+          </div>
+          <div class="step-elegant">
+            <span class="step-number">3</span>
+            <h3>Conte com suporte</h3>
+            <p>Depois da instalação, o suporte continua — sem deixar você travado no meio da operação.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section elegant-cta">
+        <div class="elegant-cta-box">
+          <p class="eyebrow">Pronto para começar?</p>
+          <h2>Fale com a Nexo Digital e resolva sua próxima demanda hoje.</h2>
           <div class="hero-actions">
-            <a class="button primary" href="apps.html">Ver apps</a>
-            <a class="button secondary" href="balanceiros.html">Central dos balanceiros</a>
-          </div>
-          <div class="home-quick-grid">
-            <a href="downloads.html"><strong>Downloads</strong><span>APKs, instaladores e arquivos</span></a>
-            <a href="vendas.html"><strong>Vendas</strong><span>Produtos com foto, vídeo e descrição</span></a>
-            <a href="ajuda.html"><strong>Ajuda técnica</strong><span>Suporte para clientes e sistemas</span></a>
+            <a class="button primary" href="contato.html">Solicitar suporte</a>
+            <a class="button secondary" href="apps.html">Explorar apps</a>
           </div>
         </div>
-      </section>
-
-      <section class="section home-overview">
-        <div class="section-heading left">
-          <p class="eyebrow">Resumo do site</p>
-          <h2>Um painel para clientes conhecerem, baixarem, comprarem e pedirem ajuda.</h2>
-        </div>
-        <div class="home-summary">
-          <article>
-            <strong>Para clientes</strong>
-            <p>Apresenta seus apps, permite baixar arquivos, comprar produtos e chamar suporte sem depender de explicação manual toda vez.</p>
-          </article>
-          <article>
-            <strong>Para balanceiros</strong>
-            <p>Organiza manuais por marca, vídeos por equipamento, busca rápida, perguntas da comunidade e envio de novos materiais.</p>
-          </article>
-          <article>
-            <strong>Para você administrar</strong>
-            <p>O admin permite editar apps, downloads, produtos de venda, imagens, vídeos e materiais PDF diretamente pelo navegador.</p>
-          </article>
-        </div>
-        <div class="home-feature-grid">
-          <a class="home-feature-card" href="apps.html">
-            <span>Apps</span>
-            <h3>Portfólio de programas</h3>
-            <p>Mostra cada app desenvolvido, com descrição, categoria e ícone próprio.</p>
-          </a>
-          <a class="home-feature-card" href="downloads.html">
-            <span>Downloads</span>
-            <h3>Arquivos para clientes</h3>
-            <p>Área para baixar APKs, instaladores, manuais e versões publicadas.</p>
-          </a>
-          <a class="home-feature-card" href="vendas.html">
-            <span>Vendas</span>
-            <h3>Produtos e anúncios</h3>
-            <p>Vitrine com imagem, preço, vídeos, descrição completa e botão de compra.</p>
-          </a>
-          <a class="home-feature-card" href="balanceiros.html">
-            <span>Balanceiros</span>
-            <h3>Manuais, vídeos e perguntas</h3>
-            <p>Busca rápida por equipamento, PDFs por marca e ajuda da comunidade.</p>
-          </a>
-          <a class="home-feature-card" href="ajuda.html">
-            <span>Suporte</span>
-            <h3>Ajuda técnica</h3>
-            <p>Canal para resolver instalação, Bluetooth, balança, impressão e erros.</p>
-          </a>
-          <a class="home-feature-card" href="contato.html">
-            <span>Contato</span>
-            <h3>Atendimento direto</h3>
-            <p>Formulário para orçamento, suporte, instalação ou dúvida de uso.</p>
-          </a>
-        </div>
-      </section>
-
-      <section class="section intro-band home-strip">
-        <a class="intro-item" href="apps.html">
-          <span>01</span>
-          <h2>Apps desenvolvidos</h2>
-          <p>Veja cada projeto encontrado na pasta de projetos, com descrição, plataforma e finalidade.</p>
-        </a>
-        <a class="intro-item" href="downloads.html">
-          <span>02</span>
-          <h2>Central de downloads</h2>
-          <p>Organize APKs, ZIPs, instaladores e manuais para seus clientes baixarem.</p>
-        </a>
-        <a class="intro-item" href="contato.html">
-          <span>03</span>
-          <h2>Atendimento</h2>
-          <p>Receba pedidos de suporte, instalação, erro de sistema ou orçamento.</p>
-        </a>
-        <a class="intro-item" href="balanceiros.html">
-          <span>04</span>
-          <h2>Para balanceiros</h2>
-          <p>Vídeos, manuais e contribuições para facilitar a vida de quem opera balanças.</p>
-        </a>
       </section>
     </main>
 
