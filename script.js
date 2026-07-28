@@ -926,6 +926,46 @@ const setupAdmin = () => {
       adminContent.balanceMaterials.push({ title: "Novo manual", type: "Manual PDF", brand: "Toledo", model: "Modelo", link: "", description: "" });
       renderAdminMaterials();
     }
+    const addMaterialBulk = event.target.closest("[data-add-material-bulk]");
+    if (addMaterialBulk) {
+      const bulkBrand = adminWorkspace.querySelector("[data-bulk-brand]");
+      const bulkType = adminWorkspace.querySelector("[data-bulk-type]");
+      const bulkTextarea = adminWorkspace.querySelector("[data-bulk-materials]");
+      const bulkStatus = adminWorkspace.querySelector("[data-bulk-status]");
+
+      const brand = bulkBrand?.value.trim() || "Geral";
+      const type = bulkType?.value || "Manual PDF";
+      const lines = (bulkTextarea?.value || "").split("\n").map((line) => line.trim()).filter(Boolean);
+
+      let added = 0;
+      let skipped = 0;
+      lines.forEach((line) => {
+        const [model, description, link] = line.split("|").map((part) => part?.trim() || "");
+        if (!model || !link) {
+          skipped += 1;
+          return;
+        }
+        adminContent.balanceMaterials.push({
+          title: description || model,
+          type,
+          brand,
+          model,
+          link,
+          description: description || "",
+        });
+        added += 1;
+      });
+
+      if (bulkStatus) {
+        bulkStatus.textContent = added
+          ? `${added} ${added > 1 ? "manuais adicionados" : "manual adicionado"}${skipped ? ` (${skipped} linha${skipped > 1 ? "s" : ""} ignorada${skipped > 1 ? "s" : ""} por faltar modelo ou link)` : ""}. Clique em "Salvar alterações" para publicar.`
+          : "Nenhuma linha válida encontrada. Use o formato Modelo | Descrição | Link, um por linha.";
+      }
+      if (added) {
+        if (bulkTextarea) bulkTextarea.value = "";
+        renderAdminMaterials();
+      }
+    }
     if (addProduct) {
       adminContent.products.push({ name: "Novo produto", category: "Produto", price: "", description: "", image: "", video: "", videosText: "", link: "contato.html", action: "Comprar" });
       renderAdminProducts();

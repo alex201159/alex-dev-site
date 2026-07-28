@@ -84,6 +84,29 @@
             </div>
             <button class="button secondary" type="button" data-add-material>Adicionar material</button>
           </div>
+
+          <article class="admin-item admin-bulk-add">
+            <header><strong>Adicionar manuais em massa</strong></header>
+            <p class="admin-bulk-hint">Escolha a marca e o tipo (valem para todos) e cole um manual por linha no formato <code>Modelo | Descrição | Link</code>.</p>
+            <div class="admin-grid">
+              <label>Marca (aplica a todos os itens)<input type="text" data-bulk-brand placeholder="Ex: Toledo" /></label>
+              <label>Tipo (aplica a todos os itens)
+                <select data-bulk-type>
+                  <option>Manual PDF</option>
+                  <option>Vídeo</option>
+                </select>
+              </label>
+            </div>
+            <label>Manuais, um por linha
+              <textarea data-bulk-materials rows="8" placeholder="Prix 7E | Balança Comercial - Manual do Usuário | https://exemplo.com/prix7e.pdf
+Prix Rebanho | Balança para Gado - Manual do Usuário | https://exemplo.com/prix-rebanho.pdf"></textarea>
+            </label>
+            <div class="admin-inline-actions">
+              <button class="button primary" type="button" data-add-material-bulk>Adicionar todos</button>
+              <span data-bulk-status></span>
+            </div>
+          </article>
+
           <div class="admin-list" data-admin-materials></div>
         </section>
 

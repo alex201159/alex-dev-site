@@ -4823,6 +4823,38 @@ textarea {
   padding: 16px;
 }
 
+.admin-bulk-add {
+  border-color: rgba(142, 214, 107, 0.35);
+  background: linear-gradient(160deg, rgba(142, 214, 107, 0.08), transparent 55%), var(--panel);
+}
+
+.admin-bulk-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.admin-bulk-hint code {
+  border-radius: 4px;
+  padding: 1px 5px;
+  background: rgba(255, 255, 255, 0.08);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85em;
+}
+
+.admin-bulk-add textarea[data-bulk-materials] {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+[data-bulk-status] {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
 @media (max-width: 700px) {
   .manual-items,
   .community-feed,
