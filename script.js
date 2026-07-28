@@ -21,9 +21,10 @@ const externalSearch = document.querySelector("[data-external-search]");
 const balanceTabs = document.querySelectorAll("[data-balance-tab]");
 const balancePanels = document.querySelectorAll("[data-balance-panel]");
 const materialTabs = document.querySelectorAll("[data-material-tab]");
-const manualTabs = document.querySelectorAll("[data-manual-tab]");
-const manualPanels = document.querySelectorAll("[data-manual-panel]");
+const manualBrandTabsContainer = document.querySelector(".manual-library .brand-tabs");
 const manualBrandList = document.querySelector(".manual-brand-list");
+const getManualTabs = () => manualBrandTabsContainer?.querySelectorAll("[data-manual-tab]") || [];
+const getManualPanels = () => manualBrandList?.querySelectorAll("[data-manual-panel]") || [];
 const manualModelSearch = document.querySelector("[data-manual-model-search]");
 const manualEmpty = document.querySelector("[data-manual-empty]");
 const communityManuals = document.querySelector("[data-community-manuals]");
@@ -1440,20 +1441,53 @@ const renderMaterialModels = () => {
   materialModel.value = models.includes(current) ? current : "all";
 };
 
+// Cria a aba + seção de uma marca nova (ex.: admin cadastrou um manual de
+// marca que ainda não tinha lugar próprio), inserindo antes de "Comunidade"
+// pra ela continuar sempre por último.
+const ensureManualBrandSection = (brandName) => {
+  if (!manualBrandTabsContainer || !manualBrandList || !brandName) return;
+
+  if (!manualBrandTabsContainer.querySelector(`[data-manual-tab="${cssEscape(brandName)}"]`)) {
+    const comunidadeTab = manualBrandTabsContainer.querySelector('[data-manual-tab="Comunidade"]');
+    const button = document.createElement("button");
+    button.className = "brand-tab";
+    button.type = "button";
+    button.dataset.manualTab = brandName;
+    button.textContent = brandName;
+    manualBrandTabsContainer.insertBefore(button, comunidadeTab || null);
+  }
+
+  if (!manualBrandList.querySelector(`[data-manual-panel="${cssEscape(brandName)}"]`)) {
+    const comunidadePanel = manualBrandList.querySelector('[data-manual-panel="Comunidade"]');
+    const article = document.createElement("article");
+    article.className = "manual-brand-group";
+    article.dataset.manualPanel = brandName;
+    article.innerHTML = `<header><span>${escapeHtml(brandName)}</span><strong>0 manuais cadastrados</strong></header><div class="manual-items"></div>`;
+    manualBrandList.insertBefore(article, comunidadePanel || null);
+  }
+};
+
+const cssEscape = (value) => (window.CSS?.escape ? window.CSS.escape(value) : String(value).replace(/["\\]/g, "\\$&"));
+
 const renderCommunityManuals = () => {
   if (!manualBrandList) return;
 
   manualBrandList.querySelectorAll("[data-dynamic-manual]").forEach((item) => item.remove());
 
   const manuals = runtimeMaterials.filter((item) => !item.external && item.type === "Manual PDF" && item.link && item.link !== "#");
+  // Comunidade é só pra material que os próprios usuários postaram pelo site.
+  // Todo manual cadastrado pelo admin ganha (ou cria) sua própria marca.
   const brandFor = (item) => {
     if (!item.admin) return "Comunidade";
-    return mainBrands.find((brand) => brand.toLowerCase() === String(item.brand || "").trim().toLowerCase()) || "Comunidade";
+    const brand = String(item.brand || "").trim();
+    if (!brand) return "Comunidade";
+    ensureManualBrandSection(brand);
+    return brand;
   };
 
   manuals.forEach((item) => {
     const panelName = brandFor(item);
-    const panel = [...manualPanels].find((manualPanel) => manualPanel.dataset.manualPanel === panelName);
+    const panel = [...getManualPanels()].find((manualPanel) => manualPanel.dataset.manualPanel === panelName);
     const container = panel?.querySelector(".manual-items");
     if (!container) return;
 
@@ -1471,7 +1505,7 @@ const renderCommunityManuals = () => {
     );
   });
 
-  manualPanels.forEach((panel) => {
+  getManualPanels().forEach((panel) => {
     const count = panel.querySelectorAll("[data-manual-model]").length;
     const counter = panel.querySelector("header strong");
     if (!counter) return;
@@ -1500,13 +1534,13 @@ const renderManualTabs = () => {
   const search = manualModelSearch?.value.trim().toLowerCase() || "";
   let visibleManualCount = 0;
 
-  manualTabs.forEach((button) => {
+  getManualTabs().forEach((button) => {
     button.classList.toggle("active", button.dataset.manualTab === selectedManualBrand);
   });
 
   const isAllMode = selectedManualBrand === "all";
 
-  manualPanels.forEach((panel) => {
+  getManualPanels().forEach((panel) => {
     const isActive = isAllMode ? Boolean(search) : panel.dataset.manualPanel === selectedManualBrand;
     if (!isActive) {
       panel.classList.remove("active");
@@ -1765,12 +1799,13 @@ materialTabs.forEach((button) => {
   });
 });
 
-manualTabs.forEach((button) => {
-  button.addEventListener("click", () => {
-    selectedManualBrand = button.dataset.manualTab;
-    if (manualModelSearch) manualModelSearch.value = "";
-    renderManualTabs();
-  });
+manualBrandTabsContainer?.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-manual-tab]");
+  if (!button) return;
+
+  selectedManualBrand = button.dataset.manualTab;
+  if (manualModelSearch) manualModelSearch.value = "";
+  renderManualTabs();
 });
 
 manualModelSearch?.addEventListener("input", renderManualTabs);
