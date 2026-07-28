@@ -1,8 +1,8 @@
 {
-  "name": "nexo-digital-site",
+  "name": "exatta-tech-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Site Nexo Digital com apps, downloads, vendas, suporte e central para balanceiros.",
+  "description": "Site Exatta Tech com apps, downloads, vendas, suporte e central para balanceiros.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

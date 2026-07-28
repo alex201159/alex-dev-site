@@ -181,7 +181,7 @@ const curatedMaterials = [
 const defaultMaterials = [
   ...curatedMaterials,
   {
-    name: "Nexo Digital",
+    name: "Exatta Tech",
     title: "Checklist antes de iniciar a pesagem",
     type: "Dica rápida",
     brand: "Geral",
@@ -190,7 +190,7 @@ const defaultMaterials = [
     description: "Confira conexão, estabilidade do peso, impressora e relatório antes de começar o atendimento.",
   },
   {
-    name: "Nexo Digital",
+    name: "Exatta Tech",
     title: "Guia de suporte para Bluetooth",
     type: "Procedimento técnico",
     brand: "Geral",
