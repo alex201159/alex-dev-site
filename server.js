@@ -6,7 +6,7 @@ const root = __dirname;
 const port = Number(process.env.PORT || 5173);
 const contentPath = path.join(root, "data", "content.json");
 const uploadsDir = path.join(root, "uploads");
-const adminPassword = process.env.ADMIN_PASSWORD || "alex123";
+const adminPassword = process.env.ADMIN_PASSWORD || "alex.8833";
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
