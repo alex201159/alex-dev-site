@@ -388,7 +388,20 @@ const serveStatic = (req, res) => {
   });
 };
 
+const handleAdminVerify = (req, res) => {
+  if (!isAdminRequest(req)) {
+    sendJson(res, { error: "Senha de admin inválida." }, 401);
+    return;
+  }
+  sendJson(res, { ok: true });
+};
+
 const server = http.createServer((req, res) => {
+  if (req.url.startsWith("/api/admin/verify")) {
+    handleAdminVerify(req, res);
+    return;
+  }
+
   if (req.url.startsWith("/api/upload")) {
     handleUpload(req, res);
     return;

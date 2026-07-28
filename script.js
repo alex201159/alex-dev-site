@@ -703,7 +703,17 @@ const setAdminValue = (path, value) => {
   if (adminStatus) adminStatus.textContent = "Alterações locais ainda não salvas.";
 };
 
+const verifyAdminPassword = async () => {
+  const response = await fetch("/api/admin/verify", {
+    headers: { "x-admin-password": adminPassword },
+  });
+  return response.ok;
+};
+
 const loadAdmin = async () => {
+  const isValid = await verifyAdminPassword();
+  if (!isValid) throw new Error("Senha de admin inválida.");
+
   adminContent = await fetchContent();
   if (adminWorkspace) adminWorkspace.hidden = false;
   if (adminLogin) adminLogin.hidden = true;
@@ -848,14 +858,29 @@ const uploadPendingAdminProductVideos = async () => {
 const setupAdmin = () => {
   if (!adminLogin) return;
 
-  if (adminPassword) loadAdmin().catch(() => localStorage.removeItem(adminPasswordStorageKey));
+  const adminLoginStatus = adminLogin.querySelector("[data-admin-login-status]");
+
+  if (adminPassword) {
+    loadAdmin().catch(() => {
+      localStorage.removeItem(adminPasswordStorageKey);
+      adminPassword = "";
+    });
+  }
 
   adminLogin.addEventListener("submit", async (event) => {
     event.preventDefault();
     adminPassword = new FormData(adminLogin).get("password").trim();
-    localStorage.setItem(adminPasswordStorageKey, adminPassword);
-    await loadAdmin();
-    adminLogin.reset();
+
+    try {
+      await loadAdmin();
+      localStorage.setItem(adminPasswordStorageKey, adminPassword);
+      adminLogin.reset();
+      if (adminLoginStatus) adminLoginStatus.textContent = "";
+    } catch (error) {
+      adminPassword = "";
+      localStorage.removeItem(adminPasswordStorageKey);
+      if (adminLoginStatus) adminLoginStatus.textContent = error.message || "Senha de admin inválida.";
+    }
   });
 
   document.querySelectorAll("[data-admin-tab]").forEach((button) => {
