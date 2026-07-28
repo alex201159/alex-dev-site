@@ -276,7 +276,7 @@ const dataUrlToObjectUrl = (dataUrl) => {
 // embutir quando a fonte é confiável (upload do próprio site ou storage bruto
 // tipo Azure Blob/S3, que normalmente não bloqueiam). Todo o resto manda
 // direto para "Abrir fonte original".
-const embeddablePdfHosts = ["blob.core.windows.net", "amazonaws.com"];
+const embeddablePdfHosts = ["blob.core.windows.net", "amazonaws.com", "urano.com.br", "primaxbalancas.com.br"];
 
 const openPdfViewer = (title, link) => {
   if (!pdfViewer || !pdfFrame) return false;
