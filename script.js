@@ -283,7 +283,12 @@ const openPdfViewer = (title, link) => {
 
   const cleanLink = String(link || "");
   const lowerLink = cleanLink.toLowerCase();
-  const isOwnUpload = cleanLink.startsWith("/uploads/") || cleanLink.startsWith("blob:") || cleanLink.startsWith("data:application/pdf");
+  const isOwnUpload =
+    cleanLink.startsWith("/uploads/") ||
+    cleanLink.startsWith("assets/") ||
+    cleanLink.startsWith("/assets/") ||
+    cleanLink.startsWith("blob:") ||
+    cleanLink.startsWith("data:application/pdf");
   const isTrustedStorage = lowerLink.includes(".pdf") && embeddablePdfHosts.some((host) => lowerLink.includes(host));
   const canEmbed = isOwnUpload || isTrustedStorage;
 
