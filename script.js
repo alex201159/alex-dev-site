@@ -706,6 +706,7 @@ const setAdminValue = (path, value) => {
 const loadAdmin = async () => {
   adminContent = await fetchContent();
   if (adminWorkspace) adminWorkspace.hidden = false;
+  if (adminLogin) adminLogin.hidden = true;
   renderAdmin();
 };
 
